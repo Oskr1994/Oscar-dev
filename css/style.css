@@ -1,5 +1,5 @@
 .portada {
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('/images/fondo2.png');
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('/images/fondo2.png');
     background-size: cover;
     background-position: center;
     background-size: 100vw;
@@ -8,14 +8,17 @@
     text-align: center;
     height: 100vh;
 }
+
 .portada h1 {
     font-size: 3rem;
 }
+
 .section-title {
     text-align: center;
     margin-bottom: 40px;
     font-weight: bold;
 }
+
 .icon-service {
     font-size: 2rem;
     color: #007bff;
@@ -28,21 +31,60 @@
     justify-content: center;
     text-align: center;
 }
+
 .logo-face {
     width: 500px;
     height: auto;
     margin-left: 50px;
 }
 
+.descripcion {
+    display: flex;
+    flex-direction: row;
+    font-size: 1.2rem;
+    color: #333;
+    width: 100%;
+    padding: 0px 0px 0 50px;
+    gap: 0;
+}
+
+.container-sobremi {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+    padding-bottom: 0;
+}
+
+.descripcion img {
+    margin: 0;
+    padding: 0;
+}
+
 @media screen and (max-width: 768px) {
     .portada h1 {
         font-size: 2rem;
     }
+
     .section-title {
         font-size: 1.5rem;
     }
+
     .icon-service {
         font-size: 1.5rem;
     }
-    
+    .descripcion {
+        flex-direction: column;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+    .descripcion img {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 0;
+    }
+
+
 }
