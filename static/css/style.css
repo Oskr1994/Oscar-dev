@@ -7,7 +7,7 @@ body html {
 }
 
 .portada {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('/static/images/fondo2.png');
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('static/images/fondo2.png');
     background-size: cover;
     background-position: center;
     background-size: 100vw;
