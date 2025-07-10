@@ -18,9 +18,8 @@ body html {
 }
 
 .portada h1 {
-    font-size: 3rem;
+    font-size: 2rem;
 }
-
 .section-title {
     text-align: center;
     margin-bottom: 40px;
@@ -38,6 +37,8 @@ body html {
     align-items: center;
     justify-content: center;
     text-align: center;
+    background-color: rgb(240, 240, 240);
+    height: 100vh;
 }
 /* Video de fondo cubriendo toda la sección */
 .servicios .bg-video {
@@ -68,8 +69,8 @@ body html {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  z-index: 2;
-  height: 100vh;
+    z-index: 2;
+    height: 100vh;
 }
 
 
