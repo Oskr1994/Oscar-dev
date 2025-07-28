@@ -3,205 +3,327 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Oscar Dev | Desarrollo Web Freelance</title>
+  <title>Oscar Dev | Desarrollador de Software</title>
+  <meta name="description" content="Oscar Pérez (Oscar Dev) — Desarrollador de software en Lima, Perú. Aplicaciones web con Python/Flask, personalización de Odoo 18, despliegue y mantenimiento de VPS.">
+  <link rel="icon" href="/favicon.ico">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://oscar-dev.site/">
+  <meta property="og:title" content="Oscar Dev | Desarrollador de Software">
+  <meta property="og:description" content="Aplicaciones web con Python/Flask, personalización de Odoo 18, despliegue y mantenimiento de VPS. Lima, Perú.">
+  <meta property="og:image" content="https://oscar-dev.site/static/images/foto-perfil.jpg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Oscar Dev | Desarrollador de Software">
+  <meta name="twitter:description" content="Aplicaciones web con Python/Flask, personalización de Odoo 18, despliegue y mantenimiento de VPS. Lima, Perú.">
+  <meta name="twitter:image" content="https://oscar-dev.site/static/images/foto-perfil.jpg">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="static/css/style.css" rel="stylesheet">
-  <style>
-    /* Fondo del hero */
-
-  </style>
+  <link href="static/css/styleport.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous"/>
 </head>
+
 <body>
 
-    <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-  <div class="container">
-    <a class="navbar-brand" href="#inicio">
-      <img src="static/images/oscar-dev.png" alt="Logo Oscar Dev" style="height: 30px;">
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContenido" aria-controls="navbarContenido" aria-expanded="false" aria-label="Menú">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <div class="contenedor-global">
 
-    <div class="collapse navbar-collapse" id="navbarContenido">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#sobremi">Sobre mí</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#servicios">Servicios</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#portafolio">Portafolio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#testimonios">Testimonios</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#contacto">Contacto</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-
-  <!-- Section 1: Hero -->
-  <section class="portada" id="inicio">
-    <div class="container">
-      <img src="static/images/logo.png" alt="Logo Oscar Dev" class="img-fluid pb-5" style="width: 600px;">
-      <h1>Desarrollo de Software</h1>
-      <p class="lead mt-3">Sitios rápidos, modernos y adaptados a tu necesidad.<br>software profesional para tu negocio</p>
-    </div>
-  </section>
-
-  <!-- Section 2: Sobre mí -->
-  <section id="sobremi" class="sobremi">
-      <div class="container-sobremi">
-          <div class="align-items-center descripcion">
-            <!-- Texto -->
-            <div class="text-center py-0 px-0">
-              <h2 class="text-center fw-bold">Sobre mí</h2><br>
-              <p class="fs-5">
-                ¡Hola! Soy <strong>Oscar Pérez</strong>, desarrollador web freelance con una visión clara: ayudarte a tener presencia digital sólida, funcional y profesional, sin complicaciones técnicas.
-              </p>
-              <p class="fs-5">
-                Me especializo en crear soluciones, enfocándome en velocidad, usabilidad y diseño claro. También configuro y despliego proyectos en servidores VPS, hosting personalizado, aplicaciones web.
-              </p>
-              <p class="fs-5 mb-0">
-                Si estás comenzando un proyecto, quieres lanzar una tienda online, o simplemente mejorar tu web actual, te puedo ayudar con una solución adaptada a tu idea, tu marca y tu presupuesto.
-              </p>
+        <div id="perfil" class="d-flex flex-md-row flex-column align-items-start perfil-container mb-4 gap-3">
+            <div class="col-md-2 col-12 text-md-start text-center foto-perfil mx-0 px-0">
+                <img src="/static/images/foto-perfil.jpg" alt="foto de perfil" width="150" class="rounded-5 img-fluid">
             </div>
+            <div class="col-md-10 col-12 text-left d-flex flex-column align-items-left gap-0">
+                <div>
+                    <p class="fs-2 fw-semibold mb-0 my-0">Oscar E. Perez A. (Oscar Dev)</p>
+                    <p class="fs-6 fw-semibold mb-1">Desarrollador de software.</p>   
+                    <p class="fs-6 fw-semibold mb-1"><img src="static/icons/googlemaps.png" alt="Ubicación" width="24" height="24">
+                        Lima, Perú.</p>
+                </div>
+                <div class="fs-6 fw-semibold mb-1 d-flex flex-wrap align-items-center justify-content-start gap-2">
+                    <a class="btn btn-sm d-flex align-items-center justify-content-center" 
+                    style="background-color: #585858; color: white;" href="mailto:oscar_dev2025@outlook.com">
+                    <i class="fa-regular fa-envelope fa-2x mx-1"></i>oscar_dev2025@outlook.com</a>
+                    <a class="btn btn-sm" href="/cv.pdf" target="_blank" title="Descargar CV"
+                    style="background-color: #242424; border: 0.5px solid #616161; color: #aaaaaa;">
+                    <i class="fa-regular fa-file-lines fa-2x"></i></a>
+                    <a class="btn btn-sm" href="https://github.com/Oskr1994"
+                    style="background-color: #242424; border: 0.5px solid #616161; color: #aaaaaa;">
+                    <i class="fa-brands fa-github fa-2x"></i></a>
+                    <a class="btn btn-sm" href="https://www.linkedin.com/in/oscar-perez-alvarez-b6a621409/"
+                    style="background-color: #242424; border: 0.5px solid #616161; color: #aaaaaa;">
+                    <i class="fa-brands fa-linkedin-in fa-2x"></i></a>
+                    <a class="btn btn-sm" href="https://wa.me/51916875034?text=Hola,%20Oscar%20vi%20tu%20portafolio..." 
+                    target="_blank" style="background-color: #242424; border: 0.5px solid #616161; color: #aaaaaa;">
+                    <i class="fa-brands fa-whatsapp fa-2x"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div id="sobre-mi">
             <div>
-              <img src="static/images/logo-face.png" alt="Sobre mí" class="logo-face">
+                <p class="fs-4 fw-semibold mb-0">Sobre mí</p>
+                <p class="fs-6 mb-1">Desarrollador de software especializado en crear soluciones, 
+                    enfocándome en velocidad, usabilidad y diseño claro. También configuro y despliego proyectos en servidores
+                     VPS, hosting personalizado, aplicaciones web, personalización del ERP Odoo y más.</p>
             </div>
-          </div>
-      </div>
-  </section>
+        </div>
 
-  <!-- Section 3: Servicios -->
-  <section id="servicios" class="py-5 servicios position-relative overflow-hidden">
-    <!-- Video de fondo -->
-    <video class="bg-video" autoplay loop muted playsinline>
-      <source src="static/videos/enciende-apaga.mp4" type="video/mp4">
-      <!-- Texto alternativo si el navegador no soporta video -->
-      Tu navegador no soporta el elemento video.
-    </video>
+        <hr class="my-4">
+
+        <div id="tecnologias" class="mb-4">
+            <div>
+                <p class="fs-4 fw-semibold mb-1">Tecnologías</p>
+            </div>
+            <div class="d-flex flex-wrap align-items-center justify-content-start gap-2 mb-3 p-3">
+                <button class="btn btn-sm d-flex align-items-center justify-content-center icons">
+                <i class="fa-brands fa-html5 fa-1x mx-1"></i>HTML5</button>
+                <button class="btn btn-sm d-flex align-items-center justify-content-center icons">
+                <i class="fa-brands fa-css3-alt fa-1x mx-1"></i>CSS</button>
+                <button class="btn btn-sm d-flex align-items-center justify-content-center icons">
+                <i class="fa-brands fa-linux fa-1x mx-1"></i>LINUX</button>
+                <button class="btn btn-sm d-flex align-items-center justify-content-center icons">
+                <i class="fa-solid fa-database fa-1x mx-1"></i>SQL</button>
+                <button class="btn btn-sm d-flex align-items-center justify-content-center icons">
+                <i class="fa-brands fa-python fa-1x mx-1"></i>PYTHON</button>
+                <button class="btn btn-sm d-flex align-items-center justify-content-center icons">
+                <i class="fa-brands fa-js fa-1x mx-1"></i>JAVASCRIPT</button>
+                <button class="btn btn-sm d-flex align-items-center justify-content-center icons">
+                <svg class="mx-1" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <title>Flask</title><path style="fill:#aaaaaa;" d="M10.773 2.878c-.013 1.434.322 4.624.445 5.734l-8.558 3.83c-.56-.959-.98-2.304-1.237-3.38l-.06.027c-.205.09-.406.053-.494-.088l-.011-.018-.82-1.506c-.058-.105-.05-.252.024-.392a.78.78 0 0 1 .358-.331l9.824-4.207c.146-.064.299-.063.4.004.106.062.127.128.13.327Zm.68 7c.523 1.97.675 2.412.832 2.818l-7.263 3.7a19.35 19.35 0 0 1-1.81-2.83l8.24-3.689Zm12.432 8.786h.003c.283.402-.047.657-.153.698l-.947.37c.037.125.035.319-.217.414l-.736.287c-.229.09-.398-.059-.42-.2l-.025-.125c-4.427 1.784-7.94 1.685-10.696.647-1.981-.745-3.576-1.983-4.846-3.379l6.948-3.54c.721 1.431 1.586 2.454 2.509 3.178 2.086 1.638 4.415 1.712 5.793 1.563l-.047-.233c-.015-.077.007-.135.086-.165l.734-.288a.302.302 0 0 1 .342.086l.748-.288a.306.306 0 0 1 .341.086l.583.89Z"/></svg>
+                FLASK</button>
+                <button class="btn btn-sm d-flex align-items-center justify-content-center icons">
+                <i class="fa-brands fa-git-alt fa-1x mx-1"></i>GIT</button>
+                <button class="btn btn-sm d-flex align-items-center justify-content-center icons">
+                <i class="fa-brands fa-docker fa-1x mx-1"></i></i>DOCKER</button>
+            </div>
+        </div>
+
+        <div id="experiencia" style="width: 100%;">
+            <div>
+                <p class="fs-4 fw-semibold mb-3">Experiencia</p>
+            </div>
+            <div class="d-flex flex-column gap-2 mb-3 expe">
+
+                <div class="d-flex flex-md-row flex-column align-items-start justify-content-between gap-3 mb-3 p-3 rounded-4">
+                    <div class="d-flex flex-column align-items-center justify-content-start">
+                        <button class="btn btn-sm icons">
+                        <i class="fa-solid fa-globe fa-2x mx-1"></i></i></button>
+                    </div>
+                    <div class="flex-grow-1 mx-2">
+                        <p class="fs-6 fw-semibold mb-1">Freelance</p>
+                        <p class="fs-6 mb-1">Desarrollador web</p>
+                        <p class="my-0" style="font-size: 14px;">Creación de sitios web personales o comerciales, desarrollo de aplicaciones web a medida.</p>
+                    </div>
+                    <div class="d-flex align-items-start">
+                        <button class="btn btn-sm icons" style="font-size: 12px;">2024 - 2025</button>
+                    </div>
+                </div>
+
+                <div class="d-flex flex-md-row flex-column align-items-start justify-content-between gap-3 mb-3 p-3 rounded-4">
+                    <div class="d-flex flex-column align-items-center justify-content-start">
+                        <button class="btn btn-sm icons">
+                        <i class="fa-solid fa-shield-halved fa-2x mx-1"></i></button>
+                    </div>
+                    <div class="flex-grow-1 mx-2">
+                        <p class="fs-6 fw-semibold mb-1">Empresa de seguridad - Valtar Security</p>
+                        <p class="fs-6 mb-1">Desarrollador web</p>
+                        <p class="my-0" style="font-size: 14px;">Desarrollo de sitio web, personalización de Odoo 18, creación de módulos personalizados, instalación y mantenimiento de VPS.</p>
+                    </div>
+                    <div class="d-flex align-items-start">
+                        <button class="btn btn-sm icons" style="font-size: 12px;">Actualidad</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <hr class="my-4">
 
 
-    <!-- Contenido real de la sección -->
-    <div class="container text-white position-relative">
-      <h2 class="section-title mb-5">Servicios</h2>
-      <div class="row text-center mt-4">
-        <div class="col-md-3 mb-4">
-          <div class="icon-service">🌐</div>
-          <h5>Páginas web</h5>
-          <p>Diseño web moderno, adaptable y funcional.</p>
+        <div id="proyectos" style="width: 100%;">
+            <div>
+                <p class="fs-4 fw-semibold mb-3">Proyectos</p>
+            </div>
+
+            <div class="d-flex flex-column gap-2 mb-1 expe">
+                <div class="d-flex flex-md-row flex-column align-items-start justify-content-between gap-3 mb-3 p-3 rounded-4">
+                    <div class="d-flex flex-column align-items-center justify-content-start">
+                        <button class="btn btn-sm icons">
+                        <i class="fa-solid fa-table-list fa-2x mx-1"></i></button>
+                    </div>
+                    <div class="flex-grow-1 mx-2">
+                        <p class="fs-6 fw-semibold mb-1">Aplicación web para gestión de actividades</p>
+                        <p class="fs-6 mb-1">Aplicación web propiedad de Valtar Security</p>
+                        <p class="my-0" style="font-size: 14px;">Herramienta para gestionar actividades de trabajadores en
+                            campo y exportar reportes en PDF; además permite la asignación de tareas y seguimiento de progreso,
+                            creación de usuarios, proyectos, actividades, etc.</p>
+                        <a class="btn btn-sm" href="https://valtarsecurity.com/aplicacion"
+                        style="background-color: #242424; border: 0.5px solid #616161; color: #aaaaaa;">
+                        <i class="fa-solid fa-link mx-1"></i></a>
+                    </div>
+                    <div style="aspect-ratio: 16/9; width: 100%; max-width: 300px;">
+                        <img src="/static/images/login.png" alt="Aplicación de gestión de actividades de Valtar Security" class="rounded-4 img-fluid w-100 h-100 object-fit-cover">
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex flex-column gap-2 mb-1 expe">
+                <div class="d-flex flex-md-row flex-column align-items-start justify-content-between gap-3 mb-3 p-3 rounded-4">
+                    <div class="d-flex flex-column align-items-center justify-content-start">
+                        <button class="btn btn-sm icons">
+                        <i class="fa-solid fa-store fa-2x mx-1"></i></button>
+                    </div>
+                    <div class="flex-grow-1 mx-2">
+                        <p class="fs-6 fw-semibold mb-1">Web shop</p>
+                        <p class="fs-6 mb-1">Tienda en línea</p>
+                        <p class="my-0" style="font-size: 14px;">Web para Q'dulce con galerías, hecha en HTML5, CSS y JavaScript.</p>
+                        <a class="btn btn-sm" href="https://qdulce.shop/"
+                        style="background-color: #242424; border: 0.5px solid #616161; color: #aaaaaa;">
+                        <i class="fa-solid fa-link mx-1"></i></a>
+                    </div>
+                    <div style="aspect-ratio: 16/9; width: 100%; max-width: 300px;">
+                        <img src="/static/images/qdulce.png" alt="Tienda en línea Q'dulce" class="rounded-4 img-fluid w-100 h-100 object-fit-cover">
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex flex-column gap-2 mb-1 expe">
+                <div class="d-flex flex-md-row flex-column align-items-start justify-content-between gap-3 mb-3 p-3 rounded-4">
+                    <div class="d-flex flex-column align-items-center justify-content-start">
+                        <button class="btn btn-sm icons">
+                        <i class="fa-solid fa-chart-pie fa-2x mx-1"></i></button>
+                    </div>
+                    <div class="flex-grow-1 mx-2">
+                        <p class="fs-6 fw-semibold mb-1">Odoo 18</p>
+                        <p class="fs-6 mb-1">Instalación y personalización de Odoo 18</p>
+                        <p class="my-0" style="font-size: 14px;">Instalación en VPS de Odoo 18 Community con dominio propio,
+                            personalización de módulos nativos, integración de módulos open source y creación
+                            de scripts para backups automatizados.</p>
+                        <a class="btn btn-sm" href="https://erp.valtarsecurity.com/"
+                        style="background-color: #242424; border: 0.5px solid #616161; color: #aaaaaa;">
+                        <i class="fa-solid fa-link mx-1"></i></a>
+                    </div>
+                    <div style="aspect-ratio: 16/9; width: 100%; max-width: 300px;">
+                        <img src="/static/images/odoo.png" alt="ERP Odoo 18 de Valtar Security" class="rounded-4 img-fluid w-100 h-100 object-fit-cover">
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex flex-column gap-2 mb-1 expe">
+                <div class="d-flex flex-md-row flex-column align-items-start justify-content-between gap-3 mb-3 p-3 rounded-4">
+                    <div class="d-flex flex-column align-items-center justify-content-start">
+                        <button class="btn btn-sm icons">
+                        <i class="fa-solid fa-globe fa-2x mx-1"></i></button>
+                    </div>
+                    <div class="flex-grow-1 mx-2">
+                        <p class="fs-6 fw-semibold mb-1">Web</p>
+                        <p class="fs-6 mb-1">Página web de Valtar Security</p>
+                        <p class="my-0" style="font-size: 14px;">Página web corporativa de Valtar Security creada con HTML5, CSS y JavaScript.</p>
+                        <a class="btn btn-sm" href="https://valtarsecurity.com/"
+                        style="background-color: #242424; border: 0.5px solid #616161; color: #aaaaaa;">
+                        <i class="fa-solid fa-link mx-1"></i></a>
+                    </div>
+                    <div style="aspect-ratio: 16/9; width: 100%; max-width: 300px;">
+                        <img src="/static/images/valtar.png" alt="Página web de Valtar Security" class="rounded-4 img-fluid w-100 h-100 object-fit-cover">
+                    </div>
+                </div>
+
+            <div class="d-flex flex-column gap-2 mb-1 expe rounded-4">
+                <div class="d-flex flex-md-row flex-column align-items-start justify-content-between gap-3 mb-3 p-3 rounded-4">
+                    <div class="d-flex flex-column align-items-center justify-content-start">
+                        <button class="btn btn-sm icons">
+                        <i class="fa-solid fa-briefcase fa-2x mx-1"></i></button>
+                    </div>
+                    <div class="flex-grow-1 mx-2">
+                        <p class="fs-6 fw-semibold mb-1">Portafolio</p>
+                        <p class="fs-6 mb-1">Portafolio de marca personal</p>
+                        <p class="my-0" style="font-size: 14px;">Portafolio de presentación de diseño gráfico creado con HTML5, CSS y JavaScript.</p>
+                        <a class="btn btn-sm" href="https://artz.top/"
+                        style="background-color: #242424; border: 0.5px solid #616161; color: #aaaaaa;">
+                        <i class="fa-solid fa-link mx-1"></i></a>
+                    </div>
+                    <div style="aspect-ratio: 16/9; width: 100%; max-width: 300px;">
+                        <img src="/static/images/portafolio.png" alt="Portafolio de diseño gráfico artz.top" class="rounded-4 img-fluid w-100 h-100 object-fit-cover">
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-3 mb-4">
-          <div class="icon-service">🛒</div>
-          <h5>Tiendas online</h5>
-          <p>E-commerce personalizado en WordPress o a medida.</p>
+
+        <hr class="my-4">
+
+        <div id="formacion" class="container">
+
+            <div>
+                <p class="fs-4 fw-semibold mb-3">Formación</p>
+            </div>
+
+            <div class="row g-3">
+                <!-- Cibertec -->
+                <div class="col-12 col-md-4 forma">
+                    <div class="rounded-4 p-3 h-100 shadow-sm formacion">
+                        <div class="d-flex flex-column align-items-center mb-2">
+                            <img src="/static/images/cibertec_logo.jpeg" alt="logo cibertec" class="img-fluid rounded-4 mb-2" style="width: 100%; max-width: 200px;"/>
+                        </div>
+                        <div>
+                            <p class="fs-6 fw-semibold mb-1">Ingeniería de sistemas - Cibertec</p>
+                            <p class="fs-6 mb-1">Ingeniería de Sistemas de Información con mención en transformación digital. (cursando actualmente)</p>
+                            <a href="https://admision.cibertec.edu.pe/carreras-bachiller/ingenieria-de-sistemas" class="my-0" style="color: #aaaaaa;">
+                                · Sitio Oficial.</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Certificaciones -->
+                <div class="col-12 col-md-4 forma">
+                    <div class="rounded-4 p-3 h-100 shadow-sm formacion">
+                        <div class="d-flex flex-column align-items-center justify-content-center">
+                            <img src="/static/images/ITE.png" alt="logo ITE" class="img-fluid rounded-4 mb-2" style="width: 100%; max-width: 200px;">
+                        </div>
+                        <div>
+                            <p class="fs-6 fw-semibold mb-1">IT Essentials - Cisco</p>
+                            <p class="fs-6 mb-1">Conocimientos de hardware y software, así como de sistemas operativos, conceptos de redes, dispositivos móviles, 
+                                resolución de problemas y las responsabilidades de un profesional de TI.</p>
+                            <a style="color: #aaaaaa;" href="https://www.credly.com/badges/441beb94-445c-472d-b338-ef23e831e5db/linked_in?t=surn81">
+                                · Certificado.</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Coursera -->
+                <div class="col-12 col-md-4 forma">
+                    <div class="rounded-4 p-3 h-100 shadow-sm formacion">
+                        <div class="d-flex flex-column align-items-center justify-content-center">
+                            <img src="/static/images/coursera.jpg" alt="logo Coursera" class="img-fluid rounded-4 mb-2" style="width: 100%; max-width: 200px;">
+                        </div>
+                        <div>
+                            <p class="fs-6 fw-semibold mb-1">Python - coursera</p>
+                            <a href="https://www.coursera.org/account/accomplishments/verify/9TFC10YQQNM4" class="fs-6 mb-1" style="color: #aaaaaa;"> · Databases with Python</a><br>
+                            <a href="https://www.coursera.org/account/accomplishments/verify/RTU1AOLY0SMR" class="fs-6 mb-1" style="color: #aaaaaa;"> · Python Data Structures</a><br>
+                            <a href="https://www.coursera.org/account/accomplishments/verify/KBHPGE40TO88" class="fs-6 mb-1" style="color: #aaaaaa;"> · Python to Access Web Data</a><br>
+                            <a href="https://www.coursera.org/account/accomplishments/verify/MR8ITR4ST06J" class="fs-6 mb-1" style="color: #aaaaaa;"> · Python for Everybody</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-3 mb-4">
-          <div class="icon-service">⚙️</div>
-          <h5>Software a medida</h5>
-          <p>· Sistemas de gestión fáciles de usar.<br>· Implementación y personalización de ERP Odoo.</p>
-        </div>
-        <div class="col-md-3 mb-4">
-          <div class="icon-service">☁️</div>
-          <h5>Hosting y VPS</h5>
-          <p>Implementación en servidores con seguridad y velocidad.</p>
-        </div>
-      </div>
+
+
+        <hr class="my-4">
+
+                <div class="fs-6 fw-semibold mb-1 d-flex flex-wrap align-items-center justify-content-start gap-2 rounded-4">
+                    <a class="btn btn-sm d-flex align-items-center justify-content-center" 
+                    style="background-color: #585858; color: white;" href="mailto:oscar_dev2025@outlook.com">
+                    <i class="fa-regular fa-envelope fa-2x mx-1"></i>oscar_dev2025@outlook.com</a>
+                    <a class="btn btn-sm" href="/cv.pdf" target="_blank" title="Descargar CV"
+                    style="background-color: #242424; border: 0.5px solid #616161; color: #aaaaaa;">
+                    <i class="fa-regular fa-file-lines fa-2x"></i></a>
+                    <a class="btn btn-sm" href="https://github.com/Oskr1994"
+                    style="background-color: #242424; border: 0.5px solid #616161; color: #aaaaaa;">
+                    <i class="fa-brands fa-github fa-2x"></i></a>
+                    <a class="btn btn-sm" href="https://www.linkedin.com/in/oscar-perez-alvarez-b6a621409/"
+                    style="background-color: #242424; border: 0.5px solid #616161; color: #aaaaaa;">
+                    <i class="fa-brands fa-linkedin-in fa-2x"></i></a>
+                    <a class="btn btn-sm" href="https://wa.me/51916875034?text=Hola,%20Oscar%20vi%20tu%20portafolio..." 
+                    target="_blank" style="background-color: #242424; border: 0.5px solid #616161; color: #aaaaaa;">
+                    <i class="fa-brands fa-whatsapp fa-2x"></i></a>
+                </div>
     </div>
-  </section>
-
-
-  <!-- Section 4: Portafolio -->
-  <section id="portafolio" class="py-5 bg-light">
-    <div class="container">
-      <h2 class="section-title">Portafolio</h2>
-      <div class="row">
-        <div class="col-md-4 mb-4">
-          <div class="card">
-            <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Proyecto 1">
-            <div class="card-body">
-              <h5 class="card-title">Tienda Online FitPro</h5>
-              <p class="card-text">Sitio e-commerce para productos de nutrición deportiva.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="card">
-            <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Proyecto 2">
-            <div class="card-body">
-              <h5 class="card-title">Web Clínica Vital</h5>
-              <p class="card-text">Página institucional con reservas online para una clínica natural.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="card">
-            <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Proyecto 3">
-            <div class="card-body">
-              <h5 class="card-title">Sistema Admin Valtar</h5>
-              <p class="card-text">Panel administrativo para control de actividades y usuarios.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 5: Testimonios -->
-  <section id="testimonios" class="py-5">
-    <div class="container">
-      <h2 class="section-title">Testimonios</h2>
-      <p class="text-center">*Aquí podrás mostrar opiniones reales de clientes satisfechos en el futuro.*</p>
-    </div>
-  </section>
-
-  <!-- Section 6: Contacto -->
-  <section id="contacto" class="py-5 bg-dark text-white">
-    <div class="container">
-      <h2 class="section-title text-white pb-3">Contacto</h2>
-      <div class="row">
-        <div class="col-md-5 offset-md-1">
-          <form>
-            <div class="mb-3">
-              <label for="nombre" class="form-label">Nombre</label>
-              <input type="text" class="form-control" id="nombre" placeholder="Tu nombre">
-            </div>
-            <div class="mb-3">
-              <label for="email" class="form-label">Correo electrónico</label>
-              <input type="email" class="form-control" id="email" placeholder="tu@correo.com">
-            </div>
-            <div class="mb-3">
-              <label for="mensaje" class="form-label">Mensaje</label>
-              <textarea class="form-control" id="mensaje" rows="4" placeholder="Cuéntame tu idea..."></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
-          </form>
-        </div>
-        <div class="col-md-5 text-center">
-          <p><strong>Email:</strong> oscar.2123@hotmail.com</p>
-          <p><strong>WhatsApp:</strong> <a href="https://wa.me/51999999999" class="text-white">+51 916 875 034</a></p>
-          <div class="mt-3">
-            <a href="#" class="btn btn-outline-light btn-sm mx-1">Instagram</a>
-            <a href="#" class="btn btn-outline-light btn-sm mx-1">GitHub</a>
-            <a href="#" class="btn btn-outline-light btn-sm mx-1">LinkedIn</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-dark text-white text-center py-3">
-    <p class="mb-0">© 2023 Oscar Dev. Todos los derechos reservados.</p>
-    <p class="mb-0">Desarrollado por Oscar Pérez</p>
-  </footer>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

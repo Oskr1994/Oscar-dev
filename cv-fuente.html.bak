@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>CV - Oscar E. Perez A.</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    margin: 0; padding: 12mm 14mm;
+    color: #222; font-size: 9.8pt; line-height: 1.32;
+  }
+  h1 { font-size: 20pt; margin: 0 0 2px; }
+  .subtitle { font-size: 11.5pt; color: #444; margin: 0 0 4px; font-weight: 600; }
+  .contact { font-size: 9.5pt; color: #555; margin-bottom: 8px; }
+  .contact span { margin-right: 12px; }
+  h2 {
+    font-size: 11pt; text-transform: uppercase; letter-spacing: 1px;
+    border-bottom: 1.5px solid #333; padding-bottom: 2px; margin: 11px 0 6px;
+  }
+  .item { margin-bottom: 6px; }
+  .item-head { display: flex; justify-content: space-between; }
+  .item-title { font-weight: 700; }
+  .item-date { color: #666; font-size: 9.5pt; white-space: nowrap; }
+  .item-sub { font-style: italic; color: #444; font-size: 10pt; }
+  .item p { margin: 2px 0 0; }
+  .tags span {
+    display: inline-block; border: 1px solid #999; border-radius: 4px;
+    padding: 1px 8px; margin: 2px 4px 2px 0; font-size: 9.5pt;
+  }
+  a { color: #1a5276; text-decoration: none; }
+  ul { margin: 2px 0 0; padding-left: 18px; }
+</style>
+</head>
+<body>
+
+<h1>Oscar E. Perez A. <span style="font-weight:400; font-size:13pt; color:#666;">(Oscar Dev)</span></h1>
+<p class="subtitle">Desarrollador de software</p>
+<p class="contact">
+  <span>Lima, Perú</span>
+  <span>oscar_dev2025@outlook.com</span>
+  <span>+51 916 875 034</span><br>
+  <span><a href="https://oscar-dev.site">oscar-dev.site</a></span>
+  <span><a href="https://github.com/Oskr1994">github.com/Oskr1994</a></span>
+  <span><a href="https://www.linkedin.com/in/oscar-perez-alvarez-b6a621409/">linkedin.com/in/oscar-perez-alvarez-b6a621409</a></span>
+</p>
+
+<h2>Perfil</h2>
+<p>Desarrollador de software especializado en crear soluciones enfocadas en velocidad, usabilidad y diseño claro.
+Configuro y despliego proyectos en servidores VPS, hosting personalizado, aplicaciones web y personalización del ERP Odoo.</p>
+
+<h2>Tecnologías</h2>
+<p class="tags">
+  <span>Python</span><span>Flask</span><span>JavaScript</span><span>HTML5</span><span>CSS</span>
+  <span>SQL</span><span>Linux</span><span>Docker</span><span>Git</span><span>Odoo 18</span>
+</p>
+
+<h2>Experiencia</h2>
+<div class="item">
+  <div class="item-head"><span class="item-title">Valtar Security — Desarrollador web</span><span class="item-date">Actualidad</span></div>
+  <p>Desarrollo del sitio web corporativo, personalización de Odoo 18, creación de módulos personalizados, instalación y mantenimiento de VPS.</p>
+</div>
+<div class="item">
+  <div class="item-head"><span class="item-title">Freelance — Desarrollador web</span><span class="item-date">2024 – 2025</span></div>
+  <p>Creación de sitios web personales y comerciales, y desarrollo de aplicaciones web a medida.</p>
+</div>
+
+<h2>Proyectos</h2>
+<div class="item">
+  <div class="item-head"><span class="item-title">Aplicación web de gestión de actividades — Valtar Security</span></div>
+  <p class="item-sub"><a href="https://valtarsecurity.com/aplicacion">valtarsecurity.com/aplicacion</a></p>
+  <p>Herramienta para gestionar actividades de trabajadores en campo con exportación de reportes en PDF, asignación de tareas, seguimiento de progreso y administración de usuarios y proyectos.</p>
+</div>
+<div class="item">
+  <div class="item-head"><span class="item-title">ERP Odoo 18 — Instalación y personalización</span></div>
+  <p class="item-sub"><a href="https://erp.valtarsecurity.com/">erp.valtarsecurity.com</a></p>
+  <p>Instalación de Odoo 18 Community en VPS con dominio propio, personalización de módulos nativos, integración de módulos open source y scripts de backups automatizados.</p>
+</div>
+<div class="item">
+  <div class="item-head"><span class="item-title">Tienda en línea Q'dulce</span></div>
+  <p class="item-sub"><a href="https://qdulce.shop/">qdulce.shop</a></p>
+  <p>Web de tienda con galerías, desarrollada con HTML5, CSS y JavaScript.</p>
+</div>
+<div class="item">
+  <div class="item-head"><span class="item-title">Sitio web corporativo — Valtar Security</span></div>
+  <p class="item-sub"><a href="https://valtarsecurity.com/">valtarsecurity.com</a></p>
+  <p>Página web corporativa desarrollada con HTML5, CSS y JavaScript.</p>
+</div>
+
+<h2>Formación</h2>
+<div class="item">
+  <div class="item-head"><span class="item-title">Ingeniería de Sistemas de Información — Cibertec</span><span class="item-date">Cursando</span></div>
+  <p class="item-sub">Mención en transformación digital</p>
+</div>
+<div class="item">
+  <div class="item-head"><span class="item-title">IT Essentials — Cisco</span></div>
+  <p>Hardware, software, sistemas operativos, redes, dispositivos móviles y resolución de problemas.</p>
+</div>
+<div class="item">
+  <div class="item-head"><span class="item-title">Especialización Python for Everybody — Coursera (U. de Míchigan)</span></div>
+  <ul>
+    <li>Python for Everybody · Python Data Structures</li>
+    <li>Using Python to Access Web Data · Databases with Python</li>
+  </ul>
+</div>
+
+</body>
+</html>
