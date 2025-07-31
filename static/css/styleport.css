@@ -17,7 +17,7 @@ html, body {
     max-width: 250mm; /* Ancho de un A4 */
     background: #171717;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra opcional */
-    padding: 15mm; /* Márgenes internos (como en Word) */
+    padding: 10mm; /* Márgenes internos (como en Word) */
     box-sizing: border-box; /* Incluye padding en el tamaño total */
 }
 
@@ -30,6 +30,17 @@ html, body {
 .expe :hover {
     background-color: #252525;
     color: rgb(212, 212, 212);
+}
+
+.formacion {
+    background-color: #1f1f1f;
+    color: rgb(212, 212, 212);
+    padding: 3px;
+    border: 1px solid #505050;
+}
+
+.forma :hover {
+    background-color: #252525;
 }
 
 @media screen and (max-width: 768px) {
