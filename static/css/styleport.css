@@ -1,3 +1,9 @@
+:root {
+    --accent: #4fd1c5;
+    --accent-soft: rgba(79, 209, 197, 0.45);
+    --accent-faint: rgba(79, 209, 197, 0.12);
+}
+
 html, body {
     margin: 0;
     padding: 0;
@@ -21,26 +27,128 @@ html, body {
     box-sizing: border-box; /* Incluye padding en el tamaño total */
 }
 
+.contenedor-global hr {
+    border: 0;
+    border-top: 1px solid #2c2c2c;
+    opacity: 1;
+}
+
+/* Enlaces de texto en color de acento (no aplica a botones) */
+.contenedor-global a:not(.btn) {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.contenedor-global a:not(.btn):hover {
+    text-decoration: underline;
+}
+
+/* Títulos de sección con barra de acento */
+.titulo-seccion {
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.titulo-seccion::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 36px;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--accent);
+}
+
+/* Foto de perfil */
+.foto-perfil img {
+    border: 2px solid var(--accent-soft);
+}
+
+/* Botones de contacto: hover con acento */
+a.btn:hover {
+    border-color: var(--accent-soft) !important;
+    color: var(--accent) !important;
+}
+
+/* Iconos decorativos de sección (no interactivos) */
 .icons {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     background-color: #252525;
     color: rgb(212, 212, 212);
-    padding: 3px;
+    padding: 6px;
+    border: 0;
+    border-radius: 0.5rem;
 }
 
-.expe :hover {
-    background-color: #252525;
-    color: rgb(212, 212, 212);
+/* Chips de tecnologías (no interactivos) */
+.chip {
+    display: inline-flex;
+    align-items: center;
+    background: #212121;
+    border: 1px solid #333;
+    color: #d4d4d4;
+    border-radius: 0.375rem;
+    padding: 4px 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
 }
 
+/* Fechas de experiencia */
+.fecha {
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 0.5rem;
+    white-space: nowrap;
+}
+
+/* Tarjetas de experiencia y proyectos */
+.expe > div {
+    background: #1b1b1b;
+    border: 1px solid #2a2a2a;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.expe > div:hover {
+    border-color: var(--accent-soft);
+    background: #1e1e1e;
+}
+
+/* Botón "Ver proyecto" */
+.btn-ver {
+    border: 1px solid var(--accent-soft);
+    color: var(--accent);
+    font-size: 0.85rem;
+    margin-top: 8px;
+}
+
+.btn-ver:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #111 !important;
+}
+
+/* Tarjetas de formación */
 .formacion {
-    background-color: #1f1f1f;
+    background-color: #1b1b1b;
     color: rgb(212, 212, 212);
     padding: 3px;
-    border: 1px solid #505050;
+    border: 1px solid #2a2a2a;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
-.forma :hover {
-    background-color: #252525;
+.formacion:hover {
+    border-color: var(--accent-soft);
+    background-color: #1e1e1e;
+}
+
+.logo-formacion {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    flex-shrink: 0;
 }
 
 @media screen and (max-width: 768px) {
@@ -48,5 +156,5 @@ html, body {
         width: 100%; /* Ancho completo en pantallas pequeñas */
         padding: 5mm; /* Reduce el padding en pantallas pequeñas */
     }
-    
+
 }
