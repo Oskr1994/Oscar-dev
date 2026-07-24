@@ -18,6 +18,16 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="static/css/styleport.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous"/>
+  <script>
+    // Aplica el tema guardado antes de pintar para evitar parpadeo (claro por defecto)
+    (function () {
+      try {
+        if (localStorage.getItem('tema') === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
 </head>
 
 <body>
@@ -36,20 +46,17 @@
                         Lima, Perú.</p>
                 </div>
                 <div class="fs-6 fw-semibold mb-1 d-flex flex-wrap align-items-center justify-content-start gap-2">
-                    <a class="btn btn-sm d-flex align-items-center justify-content-center" 
-                    style="background-color: rgba(79, 209, 197, 0.12); border: 1px solid rgba(79, 209, 197, 0.4); color: #4fd1c5;" href="mailto:oscar_dev2025@outlook.com">
+                    <a class="btn btn-sm btn-contacto-accent d-flex align-items-center justify-content-center"
+                    href="mailto:oscar_dev2025@outlook.com">
                     <i class="fa-regular fa-envelope fa-lg mx-1"></i>oscar_dev2025@outlook.com</a>
-                    <a class="btn btn-sm" href="/cv.pdf" target="_blank" title="Descargar CV"
-                    style="background-color: #242424; border: 0.5px solid #616161; color: #aaaaaa;">
+                    <a class="btn btn-sm btn-contacto" href="/cv.pdf" target="_blank" title="Descargar CV">
                     <i class="fa-regular fa-file-lines fa-lg"></i></a>
-                    <a class="btn btn-sm" href="https://github.com/Oskr1994"
-                    style="background-color: #242424; border: 0.5px solid #616161; color: #aaaaaa;">
+                    <a class="btn btn-sm btn-contacto" href="https://github.com/Oskr1994">
                     <i class="fa-brands fa-github fa-lg"></i></a>
-                    <a class="btn btn-sm" href="https://www.linkedin.com/in/oscar-perez-alvarez-b6a621409/"
-                    style="background-color: #242424; border: 0.5px solid #616161; color: #aaaaaa;">
+                    <a class="btn btn-sm btn-contacto" href="https://www.linkedin.com/in/oscar-perez-alvarez-b6a621409/">
                     <i class="fa-brands fa-linkedin-in fa-lg"></i></a>
-                    <a class="btn btn-sm" href="https://wa.me/51916875034?text=Hola,%20Oscar%20vi%20tu%20portafolio..." 
-                    target="_blank" style="background-color: #242424; border: 0.5px solid #616161; color: #aaaaaa;">
+                    <a class="btn btn-sm btn-contacto" href="https://wa.me/51916875034?text=Hola,%20Oscar%20vi%20tu%20portafolio..." 
+                    target="_blank">
                     <i class="fa-brands fa-whatsapp fa-lg"></i></a>
                 </div>
             </div>
@@ -85,7 +92,7 @@
                 <i class="fa-brands fa-js fa-1x mx-1"></i>JAVASCRIPT</span>
                 <span class="chip">
                 <svg class="mx-1" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <title>Flask</title><path style="fill:#aaaaaa;" d="M10.773 2.878c-.013 1.434.322 4.624.445 5.734l-8.558 3.83c-.56-.959-.98-2.304-1.237-3.38l-.06.027c-.205.09-.406.053-.494-.088l-.011-.018-.82-1.506c-.058-.105-.05-.252.024-.392a.78.78 0 0 1 .358-.331l9.824-4.207c.146-.064.299-.063.4.004.106.062.127.128.13.327Zm.68 7c.523 1.97.675 2.412.832 2.818l-7.263 3.7a19.35 19.35 0 0 1-1.81-2.83l8.24-3.689Zm12.432 8.786h.003c.283.402-.047.657-.153.698l-.947.37c.037.125.035.319-.217.414l-.736.287c-.229.09-.398-.059-.42-.2l-.025-.125c-4.427 1.784-7.94 1.685-10.696.647-1.981-.745-3.576-1.983-4.846-3.379l6.948-3.54c.721 1.431 1.586 2.454 2.509 3.178 2.086 1.638 4.415 1.712 5.793 1.563l-.047-.233c-.015-.077.007-.135.086-.165l.734-.288a.302.302 0 0 1 .342.086l.748-.288a.306.306 0 0 1 .341.086l.583.89Z"/></svg>
+                <title>Flask</title><path style="fill: currentColor;" d="M10.773 2.878c-.013 1.434.322 4.624.445 5.734l-8.558 3.83c-.56-.959-.98-2.304-1.237-3.38l-.06.027c-.205.09-.406.053-.494-.088l-.011-.018-.82-1.506c-.058-.105-.05-.252.024-.392a.78.78 0 0 1 .358-.331l9.824-4.207c.146-.064.299-.063.4.004.106.062.127.128.13.327Zm.68 7c.523 1.97.675 2.412.832 2.818l-7.263 3.7a19.35 19.35 0 0 1-1.81-2.83l8.24-3.689Zm12.432 8.786h.003c.283.402-.047.657-.153.698l-.947.37c.037.125.035.319-.217.414l-.736.287c-.229.09-.398-.059-.42-.2l-.025-.125c-4.427 1.784-7.94 1.685-10.696.647-1.981-.745-3.576-1.983-4.846-3.379l6.948-3.54c.721 1.431 1.586 2.454 2.509 3.178 2.086 1.638 4.415 1.712 5.793 1.563l-.047-.233c-.015-.077.007-.135.086-.165l.734-.288a.302.302 0 0 1 .342.086l.748-.288a.306.306 0 0 1 .341.086l.583.89Z"/></svg>
                 FLASK</span>
                 <span class="chip">
                 <i class="fa-brands fa-git-alt fa-1x mx-1"></i>GIT</span>
@@ -149,16 +156,15 @@
                         <i class="fa-solid fa-table-list fa-2x mx-1"></i></span>
                     </div>
                     <div class="flex-grow-1 mx-2">
-                        <p class="fs-6 fw-semibold mb-1">Aplicación web para gestión de actividades</p>
+                        <p class="fs-6 fw-semibold mb-1">Aplicación web para control de inventario</p>
                         <p class="fs-6 mb-1">Aplicación web propiedad de Valtar Security</p>
-                        <p class="my-0" style="font-size: 14px;">Herramienta para gestionar actividades de trabajadores en
-                            campo y exportar reportes en PDF; además permite la asignación de tareas y seguimiento de progreso,
-                            creación de usuarios, proyectos, actividades, etc.</p>
+                        <p class="my-0" style="font-size: 14px;">Herramienta para control de inventario del almacen y exportar reportes de salidas en PDF; además asigna QR a las herramientas y registros de salidas para permitir escanearlas y ver su información, así como la
+                            creación de usuarios, asignacion de proyectos, etc.</p>
                         <a class="btn btn-sm btn-ver" href="https://valtarsecurity.com/aplicacion" target="_blank">
                         Ver proyecto <i class="fa-solid fa-arrow-right ms-1"></i></a>
                     </div>
                     <div style="aspect-ratio: 16/9; width: 100%; max-width: 300px;">
-                        <img src="/static/images/login.png" alt="Aplicación de gestión de actividades de Valtar Security" class="rounded-4 img-fluid w-100 h-100 object-fit-cover">
+                        <img src="/static/images/control-inventario.png" alt="Aplicación de gestión de actividades de Valtar Security" class="rounded-4 img-fluid w-100 h-100 object-fit-cover">
                     </div>
                 </div>
             </div>
@@ -275,7 +281,7 @@
                         <div>
                             <p class="fs-6 mb-1">Conocimientos de hardware y software, así como de sistemas operativos, conceptos de redes, dispositivos móviles, 
                                 resolución de problemas y las responsabilidades de un profesional de TI.</p>
-                            <a style="color: #aaaaaa;" href="https://www.credly.com/badges/441beb94-445c-472d-b338-ef23e831e5db/linked_in?t=surn81">
+                            <a style="color: var(--text-muted);" href="https://www.credly.com/badges/441beb94-445c-472d-b338-ef23e831e5db/linked_in?t=surn81">
                                 · Certificado.</a>
                         </div>
                     </div>
@@ -303,23 +309,51 @@
         <hr class="my-4">
 
                 <div class="fs-6 fw-semibold mb-1 d-flex flex-wrap align-items-center justify-content-start gap-2 rounded-4">
-                    <a class="btn btn-sm d-flex align-items-center justify-content-center" 
-                    style="background-color: rgba(79, 209, 197, 0.12); border: 1px solid rgba(79, 209, 197, 0.4); color: #4fd1c5;" href="mailto:oscar_dev2025@outlook.com">
+                    <a class="btn btn-sm btn-contacto-accent d-flex align-items-center justify-content-center"
+                    href="mailto:oscar_dev2025@outlook.com">
                     <i class="fa-regular fa-envelope fa-lg mx-1"></i>oscar_dev2025@outlook.com</a>
-                    <a class="btn btn-sm" href="/cv.pdf" target="_blank" title="Descargar CV"
-                    style="background-color: #242424; border: 0.5px solid #616161; color: #aaaaaa;">
+                    <a class="btn btn-sm btn-contacto" href="/cv.pdf" target="_blank" title="Descargar CV">
                     <i class="fa-regular fa-file-lines fa-lg"></i></a>
-                    <a class="btn btn-sm" href="https://github.com/Oskr1994"
-                    style="background-color: #242424; border: 0.5px solid #616161; color: #aaaaaa;">
+                    <a class="btn btn-sm btn-contacto" href="https://github.com/Oskr1994">
                     <i class="fa-brands fa-github fa-lg"></i></a>
-                    <a class="btn btn-sm" href="https://www.linkedin.com/in/oscar-perez-alvarez-b6a621409/"
-                    style="background-color: #242424; border: 0.5px solid #616161; color: #aaaaaa;">
+                    <a class="btn btn-sm btn-contacto" href="https://www.linkedin.com/in/oscar-perez-alvarez-b6a621409/">
                     <i class="fa-brands fa-linkedin-in fa-lg"></i></a>
-                    <a class="btn btn-sm" href="https://wa.me/51916875034?text=Hola,%20Oscar%20vi%20tu%20portafolio..." 
-                    target="_blank" style="background-color: #242424; border: 0.5px solid #616161; color: #aaaaaa;">
+                    <a class="btn btn-sm btn-contacto" href="https://wa.me/51916875034?text=Hola,%20Oscar%20vi%20tu%20portafolio..." 
+                    target="_blank">
                     <i class="fa-brands fa-whatsapp fa-lg"></i></a>
                 </div>
     </div>
+
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Cambiar tema claro u oscuro" title="Cambiar tema claro/oscuro">
+        <i class="fa-solid fa-moon"></i>
+    </button>
+
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var btn = document.getElementById('theme-toggle');
+            var icon = btn.querySelector('i');
+
+            function apply(theme) {
+                if (theme === 'dark') {
+                    root.setAttribute('data-theme', 'dark');
+                    icon.className = 'fa-solid fa-sun';
+                } else {
+                    root.removeAttribute('data-theme');
+                    icon.className = 'fa-solid fa-moon';
+                }
+            }
+
+            // Sincroniza el icono con el tema aplicado al cargar
+            apply(root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+
+            btn.addEventListener('click', function () {
+                var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                apply(next);
+                try { localStorage.setItem('tema', next); } catch (e) {}
+            });
+        })();
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
