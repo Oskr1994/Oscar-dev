@@ -21,7 +21,7 @@
     font-size: 10.4pt;
     line-height: 1.4;
   }
-  .page { display: flex; min-height: 297mm; }
+  .page { display: flex; height: 297mm; overflow: hidden; }
 
   /* ===== Sidebar ===== */
   .side {
@@ -55,7 +55,7 @@
   .edu ul li::before { content: "·"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
 
   /* ===== Main ===== */
-  .main { flex: 1; padding: 17mm 13mm 14mm; }
+  .main { flex: 1; padding: 15mm 13mm 12mm; }
   .name { font-size: 25pt; font-weight: 700; line-height: 1.05; }
   .name .alias { font-weight: 400; font-size: 16pt; color: var(--accent); }
   .role { font-size: 13pt; color: var(--muted); font-weight: 600; margin-top: 3px; letter-spacing: .3px; }
@@ -63,12 +63,12 @@
 
   .main h2 {
     font-size: 11.5pt; text-transform: uppercase; letter-spacing: 1.2px;
-    color: var(--accent-dark); font-weight: 700; margin: 16px 0 9px;
+    color: var(--accent-dark); font-weight: 700; margin: 13px 0 8px;
     padding-bottom: 4px; border-bottom: 1.5px solid var(--line);
   }
   .profile { color: #3a4453; font-size: 10.4pt; }
 
-  .item { margin-bottom: 11px; }
+  .item { margin-bottom: 8px; }
   .item-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
   .item-title { font-weight: 700; color: var(--ink); font-size: 10.6pt; }
   .item-date { color: var(--accent-dark); font-size: 9.4pt; font-weight: 600; white-space: nowrap; }
@@ -145,7 +145,7 @@
 
   <!-- ===================== MAIN ===================== -->
   <main class="main">
-    <div class="name">Oscar E. Perez A. <span class="alias">(Oscar Dev)</span></div>
+    <div class="name">Oscar E. Perez A.</div>
     <div class="role">Desarrollador de Software</div>
     <div class="rule"></div>
 
@@ -178,6 +178,15 @@
     <section>
       <h2>Proyectos</h2>
       <div class="proj-grid">
+        <div class="item">
+          <div class="item-head">
+            <span class="item-title">AVISTA — Centro de operaciones de seguridad</span>
+            <span class="lnk" style="color:var(--muted);font-style:italic">En desarrollo · Valtar Security</span>
+          </div>
+          <p class="desc">Plataforma web (SPA en React) para seguridad ciudadana: monitoreo en vivo sobre mapa
+          (Leaflet), alertas, unidades y patrullas en tiempo real vía WebSockets, reconocimiento de placas (LPR/ANPR),
+          y gestión de casos, buscados, sedes, usuarios con roles y auditoría. Backend en Python (FastAPI).</p>
+        </div>
         <div class="item">
           <div class="item-head">
             <span class="item-title">Control de inventario — Valtar Security</span>
