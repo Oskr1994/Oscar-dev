@@ -4,20 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Oscar Dev | Desarrollador de Software</title>
-  <meta name="description" content="Oscar Pérez (Oscar Dev) — Desarrollador de software en Lima, Perú. Aplicaciones web con Python/Flask, personalización de Odoo 18, despliegue y mantenimiento de VPS.">
+  <meta name="description" content="Oscar Pérez (Oscar Dev) — Desarrollador de software en Lima, Perú. Aplicaciones web con Python/FastAPI, personalización de Odoo 18, despliegue y mantenimiento de VPS.">
   <link rel="icon" href="/favicon.ico">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://oscar-dev.site/">
   <meta property="og:title" content="Oscar Dev | Desarrollador de Software">
-  <meta property="og:description" content="Aplicaciones web con Python/Flask, personalización de Odoo 18, despliegue y mantenimiento de VPS. Lima, Perú.">
-  <meta property="og:image" content="https://oscar-dev.site/static/images/foto-perfil.jpg">
+  <meta property="og:description" content="Aplicaciones web con Python/FastAPI, personalización de Odoo 18, despliegue y mantenimiento de VPS. Lima, Perú.">
+  <meta property="og:image" content="https://oscar-dev.site/static/images/foto-perfil-2.jpg">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Oscar Dev | Desarrollador de Software">
-  <meta name="twitter:description" content="Aplicaciones web con Python/Flask, personalización de Odoo 18, despliegue y mantenimiento de VPS. Lima, Perú.">
-  <meta name="twitter:image" content="https://oscar-dev.site/static/images/foto-perfil.jpg">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="static/css/styleport.css" rel="stylesheet">
+  <meta name="twitter:description" content="Aplicaciones web con Python/FastAPI, personalización de Odoo 18, despliegue y mantenimiento de VPS. Lima, Perú.">
+  <meta name="twitter:image" content="https://oscar-dev.site/static/images/foto-perfil-2.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css">
+  <link href="static/css/styleport.css?v=4" rel="stylesheet">
   <script>
     // Aplica el tema guardado antes de pintar para evitar parpadeo (claro por defecto)
     (function () {
@@ -32,356 +35,331 @@
 
 <body>
 
-    <div class="contenedor-global">
+  <header class="nav-wrap">
+    <nav class="nav">
+      <a class="nav-marca" href="#inicio">
+        <img src="/static/images/logo-sf.png" alt="" width="46" height="22">
+        <span>Oscar Dev</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#inicio" class="activo">Inicio</a></li>
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#experiencia">Experiencia</a></li>
+        <li><a href="#formacion">Formación</a></li>
+      </ul>
+      <div class="nav-acciones">
+        <button id="theme-toggle" class="btn-icono" type="button" aria-label="Cambiar tema claro u oscuro" title="Cambiar tema claro/oscuro">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <a class="btn btn-oscuro" href="mailto:oscar_dev2025@outlook.com">
+          <i class="fa-regular fa-envelope"></i><span>Contacto</span>
+        </a>
+        <button class="btn-icono nav-menu" id="nav-menu" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
 
-        <div id="perfil" class="d-flex flex-md-row flex-column align-items-start perfil-container mb-4 gap-3">
-            <div class="col-md-2 col-12 text-md-start text-center foto-perfil mx-0 px-0">
-                <img src="/static/images/foto-perfil.jpg" alt="foto de perfil" width="150" class="rounded-5 img-fluid">
-            </div>
-            <div class="col-md-10 col-12 text-left d-flex flex-column align-items-left gap-0">
-                <div>
-                    <p class="fs-2 fw-semibold mb-0 my-0">Oscar E. Perez A. (Oscar Dev)</p>
-                    <p class="fs-6 fw-semibold mb-1">Desarrollador de software.</p>   
-                    <p class="fs-6 fw-semibold mb-1"><img src="static/icons/googlemaps.png" alt="Ubicación" width="24" height="24">
-                        Lima, Perú.</p>
-                </div>
-                <div class="fs-6 fw-semibold mb-1 d-flex flex-wrap align-items-center justify-content-start gap-2">
-                    <a class="btn btn-sm btn-contacto-accent d-flex align-items-center justify-content-center"
-                    href="mailto:oscar_dev2025@outlook.com">
-                    <i class="fa-regular fa-envelope fa-lg mx-1"></i>oscar_dev2025@outlook.com</a>
-                    <a class="btn btn-sm btn-contacto" href="/cv.pdf?v=2" target="_blank" title="Ver CV">
-                    <i class="fa-regular fa-file-lines fa-lg"></i></a>
-                    <a class="btn btn-sm btn-contacto" href="https://github.com/oscardev2025">
-                    <i class="fa-brands fa-github fa-lg"></i></a>
-                    <a class="btn btn-sm btn-contacto" href="https://www.linkedin.com/in/oscar-perez-alvarez-b6a621409/">
-                    <i class="fa-brands fa-linkedin-in fa-lg"></i></a>
-                    <a class="btn btn-sm btn-contacto" href="https://wa.me/51916875034?text=Hola,%20Oscar%20vi%20tu%20portafolio..." 
-                    target="_blank">
-                    <i class="fa-brands fa-whatsapp fa-lg"></i></a>
-                </div>
-            </div>
+  <main class="contenedor">
+
+    <!-- Hero -->
+    <section id="inicio" class="hero">
+      <div class="hero-foto">
+        <img src="/static/images/foto-perfil-2.jpg" alt="Oscar E. Perez A." width="200" height="200">
+        <span class="badge-disponible"><i class="fa-solid fa-circle"></i> Disponible</span>
+      </div>
+      <div class="hero-texto">
+        <p class="hero-saludo"><span aria-hidden="true">👋</span> Hola, soy</p>
+        <h1>Oscar E. Perez A. <span>(Oscar Dev)</span></h1>
+        <p class="hero-rol">Desarrollador de software</p>
+        <p class="hero-lugar"><i class="fa-solid fa-location-dot"></i> Lima, Perú</p>
+        <div class="hero-contacto">
+          <a class="btn btn-acento" href="mailto:oscar_dev2025@outlook.com">
+            <i class="fa-regular fa-envelope"></i>oscar_dev2025@outlook.com</a>
+          <a class="btn-icono" href="/cv.pdf?v=2" target="_blank" title="Ver CV" aria-label="Ver CV">
+            <i class="fa-regular fa-file-lines"></i></a>
+          <a class="btn-icono" href="https://github.com/oscardev2025" target="_blank" title="GitHub" aria-label="GitHub">
+            <i class="fa-brands fa-github"></i></a>
+          <a class="btn-icono" href="https://www.linkedin.com/in/oscar-perez-alvarez-a22162442/" target="_blank" title="LinkedIn" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i></a>
+          <a class="btn-icono" href="https://wa.me/51916875034?text=Hola,%20Oscar%20vi%20tu%20portafolio..." target="_blank" title="WhatsApp" aria-label="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i></a>
         </div>
-
-        <div id="sobre-mi">
-            <div>
-                <p class="fs-4 fw-semibold mb-2 titulo-seccion">Sobre mí</p>
-                <p class="fs-6 mb-1">Desarrollador de software especializado en crear soluciones, 
-                    enfocándome en velocidad, usabilidad y diseño claro. También configuro y despliego proyectos en servidores
-                     VPS, hosting personalizado, aplicaciones web, personalización del ERP Odoo y más.</p>
-            </div>
+      </div>
+      <div class="hero-tarjeta">
+        <span class="icono-cuadro oscuro"><i class="fa-solid fa-code"></i></span>
+        <h2>Desarrollo de soluciones web y sistemas a medida</h2>
+        <p>Me enfoco en crear soluciones rápidas, seguras y con una experiencia de uso clara y moderna.</p>
+        <span class="linea"></span>
+      </div>
+      <div class="hero-deco" aria-hidden="true">
+        <div class="pantalla">
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
         </div>
+      </div>
+    </section>
 
-        <hr class="my-4">
+    <!-- Sobre mí -->
+    <section id="sobre-mi" class="tarjeta sobre-mi">
+      <div class="sobre-texto">
+        <h2 class="titulo"><span class="icono-cuadro"><i class="fa-regular fa-user"></i></span>Sobre mí</h2>
+        <p>Desarrollador de software especializado en crear soluciones, enfocándome en velocidad, usabilidad
+          y diseño claro. También configuro y despliego proyectos en servidores VPS, hosting personalizado,
+          aplicaciones web y personalización del ERP Odoo y más.</p>
+      </div>
+      <div class="valores">
+        <div class="valor"><i class="fa-solid fa-bolt"></i>Soluciones eficientes</div>
+        <div class="valor"><i class="fa-solid fa-display"></i>Diseño y usabilidad</div>
+        <div class="valor"><i class="fa-solid fa-cloud"></i>Despliegue en servidores</div>
+      </div>
+    </section>
 
-        <div id="tecnologias" class="mb-4">
-            <div>
-                <p class="fs-4 fw-semibold mb-2 titulo-seccion">Tecnologías</p>
+    <!-- Tecnologías -->
+    <section id="tecnologias" class="tarjeta">
+      <h2 class="titulo"><span class="icono-cuadro"><i class="fa-solid fa-code"></i></span>Tecnologías</h2>
+      <div class="tecnologias">
+        <div class="tec"><i class="devicon-html5-plain colored"></i>HTML5</div>
+        <div class="tec"><i class="devicon-css3-plain colored"></i>CSS3</div>
+        <div class="tec"><i class="devicon-linux-plain"></i>Linux</div>
+        <div class="tec"><i class="fa-solid fa-database tec-sql"></i>SQL</div>
+        <div class="tec"><i class="devicon-python-plain colored"></i>Python</div>
+        <div class="tec"><i class="devicon-javascript-plain colored"></i>JavaScript</div>
+        <div class="tec"><i class="devicon-fastapi-plain colored"></i>FastAPI</div>
+        <div class="tec"><i class="devicon-git-plain colored"></i>Git</div>
+        <div class="tec"><i class="devicon-docker-plain colored"></i>Docker</div>
+      </div>
+    </section>
+
+    <!-- Experiencia -->
+    <section id="experiencia" class="tarjeta">
+      <div class="seccion-cabecera">
+        <h2 class="titulo"><span class="icono-cuadro"><i class="fa-solid fa-briefcase"></i></span>Experiencia</h2>
+        <a class="btn-suave" href="/cv.pdf?v=2" target="_blank">Ver CV completo <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="rejilla-2">
+        <article class="item">
+          <span class="icono-item"><i class="fa-solid fa-globe"></i></span>
+          <div class="item-cuerpo">
+            <div class="item-fila">
+              <h3>Freelance</h3>
+              <span class="etiqueta-fecha">2024 - 2025</span>
             </div>
-            <div class="d-flex flex-wrap align-items-center justify-content-start gap-2 mb-3 p-3">
-                <span class="chip">
-                <i class="fa-brands fa-html5 fa-1x mx-1"></i>HTML5</span>
-                <span class="chip">
-                <i class="fa-brands fa-css3-alt fa-1x mx-1"></i>CSS</span>
-                <span class="chip">
-                <i class="fa-brands fa-linux fa-1x mx-1"></i>LINUX</span>
-                <span class="chip">
-                <i class="fa-solid fa-database fa-1x mx-1"></i>SQL</span>
-                <span class="chip">
-                <i class="fa-brands fa-python fa-1x mx-1"></i>PYTHON</span>
-                <span class="chip">
-                <i class="fa-brands fa-js fa-1x mx-1"></i>JAVASCRIPT</span>
-                <span class="chip">
-                <svg class="mx-1" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <title>Flask</title><path style="fill: currentColor;" d="M10.773 2.878c-.013 1.434.322 4.624.445 5.734l-8.558 3.83c-.56-.959-.98-2.304-1.237-3.38l-.06.027c-.205.09-.406.053-.494-.088l-.011-.018-.82-1.506c-.058-.105-.05-.252.024-.392a.78.78 0 0 1 .358-.331l9.824-4.207c.146-.064.299-.063.4.004.106.062.127.128.13.327Zm.68 7c.523 1.97.675 2.412.832 2.818l-7.263 3.7a19.35 19.35 0 0 1-1.81-2.83l8.24-3.689Zm12.432 8.786h.003c.283.402-.047.657-.153.698l-.947.37c.037.125.035.319-.217.414l-.736.287c-.229.09-.398-.059-.42-.2l-.025-.125c-4.427 1.784-7.94 1.685-10.696.647-1.981-.745-3.576-1.983-4.846-3.379l6.948-3.54c.721 1.431 1.586 2.454 2.509 3.178 2.086 1.638 4.415 1.712 5.793 1.563l-.047-.233c-.015-.077.007-.135.086-.165l.734-.288a.302.302 0 0 1 .342.086l.748-.288a.306.306 0 0 1 .341.086l.583.89Z"/></svg>
-                FLASK</span>
-                <span class="chip">
-                <i class="fa-brands fa-git-alt fa-1x mx-1"></i>GIT</span>
-                <span class="chip">
-                <i class="fa-brands fa-docker fa-1x mx-1"></i>DOCKER</span>
+            <p class="item-sub">Desarrollador web</p>
+            <p>Creación de sitios web personales o comerciales, desarrollo de aplicaciones web a medida.</p>
+          </div>
+        </article>
+        <article class="item">
+          <span class="icono-item"><i class="fa-solid fa-shield-halved"></i></span>
+          <div class="item-cuerpo">
+            <div class="item-fila">
+              <h3>Valtar Security</h3>
+              <span class="etiqueta-fecha actual">Actualidad</span>
             </div>
-        </div>
+            <p class="item-sub">Desarrollador web</p>
+            <p>Desarrollo de sitio web, personalización de Odoo 18, creación de módulos personalizados, instalación y mantenimiento de VPS.</p>
+          </div>
+        </article>
+      </div>
+    </section>
 
-        <div id="experiencia" style="width: 100%;">
-            <div>
-                <p class="fs-4 fw-semibold mb-3 titulo-seccion">Experiencia</p>
+    <!-- Proyectos -->
+    <section id="proyectos" class="tarjeta">
+      <div class="seccion-cabecera">
+        <h2 class="titulo"><span class="icono-cuadro"><i class="fa-regular fa-folder"></i></span>Proyectos</h2>      </div>
+      <div class="rejilla-2">
+
+        <article class="proyecto">
+          <img src="/static/images/avista-monitoreo.jpg" alt="AVISTA — mapa en tiempo real y tipos de alerta" loading="lazy">
+          <div class="proyecto-cuerpo">
+            <div class="item-fila">
+              <h3>AVISTA — Centro de operaciones de seguridad</h3>
+              <span class="etiqueta-fecha actual">En desarrollo</span>
             </div>
-            <div class="d-flex flex-column gap-2 mb-3 expe">
+            <p>Plataforma web para monitoreo en tiempo real, alertas y gestión de casos de seguridad ciudadana (LPR/ANPR).</p>
+            <div class="tags"><span>React</span><span>FastAPI</span><span>WebSockets</span><span>Leaflet</span></div>
+          </div>
+        </article>
 
-                <div class="d-flex flex-md-row flex-column align-items-start justify-content-between gap-3 mb-3 p-3 rounded-4">
-                    <div class="d-flex flex-column align-items-center justify-content-start">
-                        <span class="icons">
-                        <i class="fa-solid fa-globe fa-2x mx-1"></i></span>
-                    </div>
-                    <div class="flex-grow-1 mx-2">
-                        <p class="fs-6 fw-semibold mb-1">Freelance</p>
-                        <p class="fs-6 mb-1">Desarrollador web</p>
-                        <p class="my-0" style="font-size: 14px;">Creación de sitios web personales o comerciales, desarrollo de aplicaciones web a medida.</p>
-                    </div>
-                    <div class="d-flex align-items-start">
-                        <span class="icons fecha">2024 - 2025</span>
-                    </div>
-                </div>
-
-                <div class="d-flex flex-md-row flex-column align-items-start justify-content-between gap-3 mb-3 p-3 rounded-4">
-                    <div class="d-flex flex-column align-items-center justify-content-start">
-                        <span class="icons">
-                        <i class="fa-solid fa-shield-halved fa-2x mx-1"></i></span>
-                    </div>
-                    <div class="flex-grow-1 mx-2">
-                        <p class="fs-6 fw-semibold mb-1">Empresa de seguridad - Valtar Security</p>
-                        <p class="fs-6 mb-1">Desarrollador web</p>
-                        <p class="my-0" style="font-size: 14px;">Desarrollo de sitio web, personalización de Odoo 18, creación de módulos personalizados, instalación y mantenimiento de VPS.</p>
-                    </div>
-                    <div class="d-flex align-items-start">
-                        <span class="icons fecha">Actualidad</span>
-                    </div>
-                </div>
-
+        <article class="proyecto">
+          <img src="/static/images/control-inventario.png" style="object-position: left center" alt="Aplicación de control de inventario de Valtar Security" loading="lazy">
+          <div class="proyecto-cuerpo">
+            <div class="item-fila">
+              <h3>Control de inventario</h3>
+              <a class="enlace-ext" href="https://valtarsecurity.com/control-inventario" target="_blank" aria-label="Ver proyecto Control de inventario"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
             </div>
+            <p>Aplicación web para el control de inventario del almacén, con reportes de salidas en PDF, códigos QR por herramienta y gestión de usuarios.</p>
+            <div class="tags"><span>Python</span><span>JavaScript</span><span class="morado">QR · PDF</span></div>
+          </div>
+        </article>
 
-        </div>
-
-        <hr class="my-4">
-
-
-        <div id="proyectos" style="width: 100%;">
-            <div>
-                <p class="fs-4 fw-semibold mb-3 titulo-seccion">Proyectos</p>
+        <article class="proyecto">
+          <img src="/static/images/qdulce-catalogo.jpg" style="object-position: left center" alt="Catálogo en línea Q'dulce" loading="lazy">
+          <div class="proyecto-cuerpo">
+            <div class="item-fila">
+              <h3>Catálogo en línea Q'dulce</h3>
+              <a class="enlace-ext" href="https://qdulce.oscar-dev.lat/" target="_blank" aria-label="Ver proyecto Q'dulce"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
             </div>
+            <p>Catálogo web de la pastelería Q'dulce, con galerías de fotos de sus productos y página de contacto.</p>
+            <div class="tags"><span class="naranja">HTML5</span><span>CSS3</span><span>JavaScript</span></div>
+          </div>
+        </article>
 
-            <!-- AVISTA — proyecto destacado -->
-            <div class="d-flex flex-column gap-2 mb-1 expe">
-                <div class="d-flex flex-md-row flex-column align-items-start justify-content-between gap-3 mb-3 p-3 rounded-4">
-                    <div class="d-flex flex-column align-items-center justify-content-start">
-                        <span class="icons">
-                        <i class="fa-solid fa-tower-broadcast fa-2x mx-1"></i></span>
-                    </div>
-                    <div class="flex-grow-1 mx-2">
-                        <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
-                            <p class="fs-6 fw-semibold mb-0">AVISTA — Centro de operaciones de seguridad</p>
-                            <span style="background: var(--accent-faint); color: var(--accent); border: 1px solid var(--accent-soft); border-radius: 6px; padding: 1px 8px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .3px;">En desarrollo</span>
-                        </div>
-                        <p class="fs-6 mb-1">Desarrollado para Valtar Security</p>
-                        <p class="my-0" style="font-size: 14px;">Plataforma web de centro de operaciones para seguridad ciudadana: monitoreo en vivo sobre mapa, alertas y unidades en tiempo real, reconocimiento de placas (LPR/ANPR), y gestión de casos, buscados, patrullas, sedes y usuarios con roles y auditoría.</p>
-                        <div class="d-flex flex-wrap gap-2 mt-2">
-                            <span class="chip">React</span>
-                            <span class="chip">FastAPI</span>
-                            <span class="chip">WebSockets</span>
-                            <span class="chip">Leaflet</span>
-                            <span class="chip">LPR / ANPR</span>
-                        </div>
-                    </div>
-                    <div style="aspect-ratio: 16/9; width: 100%; max-width: 300px;">
-                        <img src="/static/images/avista-monitoreo.jpg" alt="AVISTA — Centro de operaciones de seguridad: mapa en tiempo real y tipos de alerta" loading="lazy" class="rounded-4 img-fluid w-100 h-100 object-fit-cover">
-                    </div>
-                </div>
+        <article class="proyecto">
+          <img src="/static/images/odoo.png" alt="ERP Odoo 18 de Valtar Security" loading="lazy">
+          <div class="proyecto-cuerpo">
+            <div class="item-fila">
+              <h3>ERP Odoo 18</h3>
+              <a class="enlace-ext" href="https://erp.valtarsecurity.com/" target="_blank" aria-label="Ver proyecto ERP Odoo 18"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
             </div>
+            <p>Instalación y personalización para Valtar Security. Módulos personalizados, integración de módulos open source y scripts de backups.</p>
+            <div class="tags"><span class="morado">Odoo 18</span><span>Python</span><span>PostgreSQL</span></div>
+          </div>
+        </article>
 
-            <div class="d-flex flex-column gap-2 mb-1 expe">
-                <div class="d-flex flex-md-row flex-column align-items-start justify-content-between gap-3 mb-3 p-3 rounded-4">
-                    <div class="d-flex flex-column align-items-center justify-content-start">
-                        <span class="icons">
-                        <i class="fa-solid fa-table-list fa-2x mx-1"></i></span>
-                    </div>
-                    <div class="flex-grow-1 mx-2">
-                        <p class="fs-6 fw-semibold mb-1">Aplicación web para control de inventario</p>
-                        <p class="fs-6 mb-1">Aplicación web propiedad de Valtar Security</p>
-                        <p class="my-0" style="font-size: 14px;">Herramienta para control de inventario del almacen y exportar reportes de salidas en PDF; además asigna QR a las herramientas y registros de salidas para permitir escanearlas y ver su información, así como la
-                            creación de usuarios, asignacion de proyectos, etc.</p>
-                        <a class="btn btn-sm btn-ver" href="https://valtarsecurity.com/control-inventario" target="_blank">
-                        Ver proyecto <i class="fa-solid fa-arrow-right ms-1"></i></a>
-                    </div>
-                    <div style="aspect-ratio: 16/9; width: 100%; max-width: 300px;">
-                        <img src="/static/images/control-inventario.png" alt="Aplicación de gestión de actividades de Valtar Security" class="rounded-4 img-fluid w-100 h-100 object-fit-cover">
-                    </div>
-                </div>
+        <article class="proyecto">
+          <img src="/static/images/medyfe.png" style="object-position: left center" alt="Sitio web de Medyfe" loading="lazy">
+          <div class="proyecto-cuerpo">
+            <div class="item-fila">
+              <h3>Sitio web corporativo</h3>
+              <a class="enlace-ext" href="https://medyfe.com/" target="_blank" aria-label="Ver sitio de Medyfe"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
             </div>
+            <p>Página web corporativa de Medyfe, centro de medicina integrativa en Lima, creada con HTML5, CSS y JavaScript.</p>
+            <div class="tags"><span class="naranja">HTML5</span><span>CSS3</span><span>JavaScript</span></div>
+          </div>
+        </article>
 
-            <div class="d-flex flex-column gap-2 mb-1 expe">
-                <div class="d-flex flex-md-row flex-column align-items-start justify-content-between gap-3 mb-3 p-3 rounded-4">
-                    <div class="d-flex flex-column align-items-center justify-content-start">
-                        <span class="icons">
-                        <i class="fa-solid fa-store fa-2x mx-1"></i></span>
-                    </div>
-                    <div class="flex-grow-1 mx-2">
-                        <p class="fs-6 fw-semibold mb-1">Tienda en línea Q'dulce</p>
-                        <p class="fs-6 mb-1">E-commerce de repostería</p>
-                        <p class="my-0" style="font-size: 14px;">Web para Q'dulce con galerías, hecha en HTML5, CSS y JavaScript.</p>
-                        <a class="btn btn-sm btn-ver" href="https://qdulce.shop/" target="_blank">
-                        Ver proyecto <i class="fa-solid fa-arrow-right ms-1"></i></a>
-                    </div>
-                    <div style="aspect-ratio: 16/9; width: 100%; max-width: 300px;">
-                        <img src="/static/images/qdulce.png" alt="Tienda en línea Q'dulce" class="rounded-4 img-fluid w-100 h-100 object-fit-cover">
-                    </div>
-                </div>
+        <article class="proyecto">
+          <img src="/static/images/portafolio.png" alt="Portafolio de diseño gráfico artz.top" loading="lazy">
+          <div class="proyecto-cuerpo">
+            <div class="item-fila">
+              <h3>Portafolio de diseño gráfico</h3>
+              <a class="enlace-ext" href="https://artz.top/" target="_blank" aria-label="Ver portafolio artz.top"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
             </div>
+            <p><span class="item-sub">Marca personal — artz.top</span><br>Portafolio de presentaciones de diseño gráfico creado con HTML5, CSS y JavaScript.</p>
+            <div class="tags"><span class="naranja">HTML5</span><span>CSS3</span><span>JavaScript</span></div>
+          </div>
+        </article>
 
-            <div class="d-flex flex-column gap-2 mb-1 expe">
-                <div class="d-flex flex-md-row flex-column align-items-start justify-content-between gap-3 mb-3 p-3 rounded-4">
-                    <div class="d-flex flex-column align-items-center justify-content-start">
-                        <span class="icons">
-                        <i class="fa-solid fa-chart-pie fa-2x mx-1"></i></span>
-                    </div>
-                    <div class="flex-grow-1 mx-2">
-                        <p class="fs-6 fw-semibold mb-1">ERP Odoo 18</p>
-                        <p class="fs-6 mb-1">Instalación y personalización para Valtar Security</p>
-                        <p class="my-0" style="font-size: 14px;">Instalación en VPS de Odoo 18 Community con dominio propio,
-                            personalización de módulos nativos, integración de módulos open source y creación
-                            de scripts para backups automatizados.</p>
-                        <a class="btn btn-sm btn-ver" href="https://erp.valtarsecurity.com/" target="_blank">
-                        Ver proyecto <i class="fa-solid fa-arrow-right ms-1"></i></a>
-                    </div>
-                    <div style="aspect-ratio: 16/9; width: 100%; max-width: 300px;">
-                        <img src="/static/images/odoo.png" alt="ERP Odoo 18 de Valtar Security" class="rounded-4 img-fluid w-100 h-100 object-fit-cover">
-                    </div>
-                </div>
-            </div>
+      </div>
+    </section>
 
-            <div class="d-flex flex-column gap-2 mb-1 expe">
-                <div class="d-flex flex-md-row flex-column align-items-start justify-content-between gap-3 mb-3 p-3 rounded-4">
-                    <div class="d-flex flex-column align-items-center justify-content-start">
-                        <span class="icons">
-                        <i class="fa-solid fa-globe fa-2x mx-1"></i></span>
-                    </div>
-                    <div class="flex-grow-1 mx-2">
-                        <p class="fs-6 fw-semibold mb-1">Sitio web corporativo</p>
-                        <p class="fs-6 mb-1">Página web de Valtar Security</p>
-                        <p class="my-0" style="font-size: 14px;">Página web corporativa de Valtar Security creada con HTML5, CSS y JavaScript.</p>
-                        <a class="btn btn-sm btn-ver" href="https://valtarsecurity.com/" target="_blank">
-                        Ver proyecto <i class="fa-solid fa-arrow-right ms-1"></i></a>
-                    </div>
-                    <div style="aspect-ratio: 16/9; width: 100%; max-width: 300px;">
-                        <img src="/static/images/valtar.png" alt="Página web de Valtar Security" class="rounded-4 img-fluid w-100 h-100 object-fit-cover">
-                    </div>
-                </div>
-            </div>
+    <!-- Formación -->
+    <section id="formacion" class="tarjeta">
+      <div class="seccion-cabecera">
+        <h2 class="titulo"><span class="icono-cuadro"><i class="fa-solid fa-graduation-cap"></i></span>Formación</h2>
+        <a class="btn-suave" href="https://www.linkedin.com/in/oscar-perez-alvarez-a22162442/details/certifications/" target="_blank">Ver certificaciones <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="rejilla-3">
+        <article class="formacion">
+          <div class="formacion-cabecera">
+            <img src="/static/images/cibertec_logo.jpeg" alt="Logo Cibertec" width="44" height="44">
+            <h3>Ingeniería de sistemas - Cibertec</h3>
+          </div>
+          <p>Ingeniería de Sistemas de Información con mención en transformación digital. (cursando actualmente)</p>
+          <a class="enlace" href="https://admision.cibertec.edu.pe/carreras-bachiller/ingenieria-de-sistemas" target="_blank">Sitio Oficial <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+        <article class="formacion">
+          <div class="formacion-cabecera">
+            <img src="/static/images/ITE.png" alt="Logo IT Essentials" width="44" height="44">
+            <h3>IT Essentials - Cisco</h3>
+          </div>
+          <p>Conocimientos de hardware y software, así como de sistemas operativos, redes, dispositivos móviles, resolución de problemas y responsabilidades de TI.</p>
+          <a class="certificado" href="https://www.credly.com/badges/441beb94-445c-472d-b338-ef23e831e5db/linked_in?t=surn81" target="_blank"><i class="fa-solid fa-circle-check"></i> Certificado</a>
+        </article>
+        <article class="formacion">
+          <div class="formacion-cabecera">
+            <img src="/static/images/coursera.jpg" alt="Logo Coursera" width="44" height="44">
+            <h3>Certificaciones Python - Coursera</h3>
+          </div>
+          <ul class="lista-cert">
+            <li><a href="https://www.coursera.org/account/accomplishments/verify/9TFC10YQQNM4" target="_blank">Databases with Python</a></li>
+            <li><a href="https://www.coursera.org/account/accomplishments/verify/RTU1AOLY0SMR" target="_blank">Python Data Structures</a></li>
+            <li><a href="https://www.coursera.org/account/accomplishments/verify/KBHPGE40TO88" target="_blank">Python to Access Web Data</a></li>
+            <li><a href="https://www.coursera.org/account/accomplishments/verify/MR8ITR4ST06J" target="_blank">Python for Everybody</a></li>
+          </ul>
+          <span class="certificado"><i class="fa-solid fa-circle-check"></i> Certificados</span>
+        </article>
+      </div>
+    </section>
 
-            <div class="d-flex flex-column gap-2 mb-1 expe">
-                <div class="d-flex flex-md-row flex-column align-items-start justify-content-between gap-3 mb-3 p-3 rounded-4">
-                    <div class="d-flex flex-column align-items-center justify-content-start">
-                        <span class="icons">
-                        <i class="fa-solid fa-briefcase fa-2x mx-1"></i></span>
-                    </div>
-                    <div class="flex-grow-1 mx-2">
-                        <p class="fs-6 fw-semibold mb-1">Portafolio de diseño gráfico</p>
-                        <p class="fs-6 mb-1">Marca personal — artz.top</p>
-                        <p class="my-0" style="font-size: 14px;">Portafolio de presentación de diseño gráfico creado con HTML5, CSS y JavaScript.</p>
-                        <a class="btn btn-sm btn-ver" href="https://artz.top/" target="_blank">
-                        Ver proyecto <i class="fa-solid fa-arrow-right ms-1"></i></a>
-                    </div>
-                    <div style="aspect-ratio: 16/9; width: 100%; max-width: 300px;">
-                        <img src="/static/images/portafolio.png" alt="Portafolio de diseño gráfico artz.top" class="rounded-4 img-fluid w-100 h-100 object-fit-cover">
-                    </div>
-                </div>
-            </div>
-        </div>
+  </main>
 
-        <hr class="my-4">
-
-        <div id="formacion" class="container">
-
-            <div>
-                <p class="fs-4 fw-semibold mb-3 titulo-seccion">Formación</p>
-            </div>
-
-            <div class="row g-3">
-                <!-- Cibertec -->
-                <div class="col-12 col-md-4 forma">
-                    <div class="rounded-4 p-3 h-100 shadow-sm formacion">
-                        <div class="d-flex align-items-center gap-2 mb-2">
-                            <img src="/static/images/cibertec_logo.jpeg" alt="logo cibertec" class="rounded-3 logo-formacion"/>
-                            <p class="fs-6 fw-semibold mb-0">Ingeniería de sistemas - Cibertec</p>
-                        </div>
-                        <div>
-                            <p class="fs-6 mb-1">Ingeniería de Sistemas de Información con mención en transformación digital. (cursando actualmente)</p>
-                            <a href="https://admision.cibertec.edu.pe/carreras-bachiller/ingenieria-de-sistemas" class="my-0">
-                                · Sitio Oficial.</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Certificaciones -->
-                <div class="col-12 col-md-4 forma">
-                    <div class="rounded-4 p-3 h-100 shadow-sm formacion">
-                        <div class="d-flex align-items-center gap-2 mb-2">
-                            <img src="/static/images/ITE.png" alt="logo ITE" class="rounded-3 logo-formacion">
-                            <p class="fs-6 fw-semibold mb-0">IT Essentials - Cisco</p>
-                        </div>
-                        <div>
-                            <p class="fs-6 mb-1">Conocimientos de hardware y software, así como de sistemas operativos, conceptos de redes, dispositivos móviles, 
-                                resolución de problemas y las responsabilidades de un profesional de TI.</p>
-                            <a style="color: var(--text-muted);" href="https://www.credly.com/badges/441beb94-445c-472d-b338-ef23e831e5db/linked_in?t=surn81">
-                                · Certificado.</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Coursera -->
-                <div class="col-12 col-md-4 forma">
-                    <div class="rounded-4 p-3 h-100 shadow-sm formacion">
-                        <div class="d-flex align-items-center gap-2 mb-2">
-                            <img src="/static/images/coursera.jpg" alt="logo Coursera" class="rounded-3 logo-formacion">
-                            <p class="fs-6 fw-semibold mb-0">Certificaciones Python - Coursera</p>
-                        </div>
-                        <div>
-                            <a href="https://www.coursera.org/account/accomplishments/verify/9TFC10YQQNM4" class="fs-6 mb-1"> · Databases with Python</a><br>
-                            <a href="https://www.coursera.org/account/accomplishments/verify/RTU1AOLY0SMR" class="fs-6 mb-1"> · Python Data Structures</a><br>
-                            <a href="https://www.coursera.org/account/accomplishments/verify/KBHPGE40TO88" class="fs-6 mb-1"> · Python to Access Web Data</a><br>
-                            <a href="https://www.coursera.org/account/accomplishments/verify/MR8ITR4ST06J" class="fs-6 mb-1"> · Python for Everybody</a>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <hr class="my-4">
-
-                <div class="fs-6 fw-semibold mb-1 d-flex flex-wrap align-items-center justify-content-start gap-2 rounded-4">
-                    <a class="btn btn-sm btn-contacto-accent d-flex align-items-center justify-content-center"
-                    href="mailto:oscar_dev2025@outlook.com">
-                    <i class="fa-regular fa-envelope fa-lg mx-1"></i>oscar_dev2025@outlook.com</a>
-                    <a class="btn btn-sm btn-contacto" href="/cv.pdf?v=2" target="_blank" title="Ver CV">
-                    <i class="fa-regular fa-file-lines fa-lg"></i></a>
-                    <a class="btn btn-sm btn-contacto" href="https://github.com/oscardev2025">
-                    <i class="fa-brands fa-github fa-lg"></i></a>
-                    <a class="btn btn-sm btn-contacto" href="https://www.linkedin.com/in/oscar-perez-alvarez-b6a621409/">
-                    <i class="fa-brands fa-linkedin-in fa-lg"></i></a>
-                    <a class="btn btn-sm btn-contacto" href="https://wa.me/51916875034?text=Hola,%20Oscar%20vi%20tu%20portafolio..." 
-                    target="_blank">
-                    <i class="fa-brands fa-whatsapp fa-lg"></i></a>
-                </div>
+  <footer class="contenedor">
+    <div class="pie">
+      <p>© <span id="anio">2026</span> Oscar E. Perez A. (Oscar Dev). Todos los derechos reservados.</p>
+      <div class="pie-derecha">
+        <a class="btn-icono" href="https://github.com/oscardev2025" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a class="btn-icono" href="https://www.linkedin.com/in/oscar-perez-alvarez-a22162442/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a class="btn-icono" href="https://wa.me/51916875034?text=Hola,%20Oscar%20vi%20tu%20portafolio..." target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <span class="pie-lugar"><i class="fa-solid fa-location-dot"></i> Lima, Perú</span>
+      </div>
     </div>
+  </footer>
 
-    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Cambiar tema claro u oscuro" title="Cambiar tema claro/oscuro">
-        <i class="fa-solid fa-moon"></i>
-    </button>
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var btn = document.getElementById('theme-toggle');
+      var icon = btn.querySelector('i');
 
-    <script>
-        (function () {
-            var root = document.documentElement;
-            var btn = document.getElementById('theme-toggle');
-            var icon = btn.querySelector('i');
+      function apply(theme) {
+        if (theme === 'dark') {
+          root.setAttribute('data-theme', 'dark');
+          icon.className = 'fa-solid fa-sun';
+        } else {
+          root.removeAttribute('data-theme');
+          icon.className = 'fa-solid fa-moon';
+        }
+      }
 
-            function apply(theme) {
-                if (theme === 'dark') {
-                    root.setAttribute('data-theme', 'dark');
-                    icon.className = 'fa-solid fa-sun';
-                } else {
-                    root.removeAttribute('data-theme');
-                    icon.className = 'fa-solid fa-moon';
-                }
-            }
+      // Sincroniza el icono con el tema aplicado al cargar
+      apply(root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
 
-            // Sincroniza el icono con el tema aplicado al cargar
-            apply(root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+      btn.addEventListener('click', function () {
+        var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        apply(next);
+        try { localStorage.setItem('tema', next); } catch (e) {}
+      });
 
-            btn.addEventListener('click', function () {
-                var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-                apply(next);
-                try { localStorage.setItem('tema', next); } catch (e) {}
-            });
-        })();
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+      // Menú móvil
+      var menuBtn = document.getElementById('nav-menu');
+      var links = document.getElementById('nav-links');
+      menuBtn.addEventListener('click', function () {
+        var abierto = links.classList.toggle('abierto');
+        menuBtn.setAttribute('aria-expanded', abierto);
+      });
+      links.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') {
+          links.classList.remove('abierto');
+          menuBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Resalta la sección visible en la barra
+      var enlaces = links.querySelectorAll('a');
+      var secciones = ['inicio', 'sobre-mi', 'experiencia', 'proyectos', 'formacion'].map(function (id) {
+        return document.getElementById(id);
+      });
+      function marcar() {
+        var actual = secciones[0];
+        if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) {
+          actual = secciones[secciones.length - 1];
+        } else {
+          secciones.forEach(function (sec) {
+            if (sec.getBoundingClientRect().top <= 140) actual = sec;
+          });
+        }
+        enlaces.forEach(function (a) {
+          a.classList.toggle('activo', a.getAttribute('href') === '#' + actual.id);
+        });
+      }
+      window.addEventListener('scroll', marcar, { passive: true });
+      marcar();
+
+      document.getElementById('anio').textContent = new Date().getFullYear();
+    })();
+  </script>
 </body>
 </html>
