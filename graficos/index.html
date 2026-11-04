@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Greenvic · Tablero de costos campaña 2026-2027 (mockup)</title>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink2: #52514e; --muted: #898781;
+  --grid: #e1e0d9; --axis: #c3c2b7; --border: rgba(11,11,11,0.10); --wash: rgba(11,11,11,0.04);
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100; --s7: #6250d6; --other: #898781;
+  --track: #cde2fb; --accent: #2a78d6; --good-text: #006300;
+  --good: #0ca30c; --warning: #fab219; --serious: #ec835a; --critical: #d03b3b;
+  --font: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --ink: #f0efec; --ink2: #c3c2b7; --muted: #898781;
+  --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,0.10); --wash: rgba(255,255,255,0.05);
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s7: #9085e9; --other: #898781;
+  --track: #104281; --accent: #3987e5; --good-text: #0ca30c;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--page); color: var(--ink); font-family: var(--font); font-size: 14px; line-height: 1.45; }
+button { font: inherit; color: inherit; }
+.wrap { max-width: 1320px; margin: 0 auto; padding: 0 24px; }
+
+/* encabezado */
+.top { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; padding: 28px 0 18px; }
+.eyebrow { margin: 0 0 4px; font-size: 12px; color: var(--ink2); display: flex; gap: 8px; align-items: center; }
+.badge { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--border); color: var(--ink2); }
+h1 { margin: 0; font-size: 26px; font-weight: 650; letter-spacing: -0.01em; }
+.sub { margin: 6px 0 0; color: var(--ink2); max-width: 820px; }
+.theme-btn { border: 1px solid var(--border); background: var(--surface); border-radius: 8px; padding: 7px 12px; cursor: pointer; white-space: nowrap; }
+.theme-btn:hover { background: var(--wash); }
+
+/* pestañas */
+.tabs { display: flex; gap: 2px; border-bottom: 1px solid var(--grid); overflow-x: auto; }
+.tab { border: 0; background: none; padding: 10px 14px; cursor: pointer; color: var(--ink2); border-bottom: 2px solid transparent; margin-bottom: -1px; white-space: nowrap; font-weight: 500; }
+.tab:hover { color: var(--ink); background: var(--wash); }
+.tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--ink); font-weight: 650; }
+.tab:focus-visible, .seg button:focus-visible, .tbl-btn:focus-visible, .theme-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.panel { padding: 20px 0 8px; }
+.panel[hidden] { display: none; }
+
+/* filtros */
+.filters { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 16px; }
+.filters .lbl { font-size: 13px; color: var(--ink2); }
+.seg { display: inline-flex; border: 1px solid var(--border); border-radius: 8px; padding: 2px; background: var(--surface); }
+.seg button { border: 0; background: none; padding: 6px 12px; border-radius: 6px; cursor: pointer; color: var(--ink2); display: inline-flex; align-items: center; gap: 6px; }
+.seg button:hover { background: var(--wash); color: var(--ink); }
+.seg button[aria-checked="true"] { background: var(--ink); color: var(--surface); font-weight: 600; }
+.dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; flex: none; }
+
+/* grilla */
+.grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+.span-3 { grid-column: span 3; } .span-4 { grid-column: span 4; } .span-5 { grid-column: span 5; }
+.span-6 { grid-column: span 6; } .span-7 { grid-column: span 7; } .span-8 { grid-column: span 8; } .span-12 { grid-column: span 12; }
+@media (max-width: 1080px) { .span-3 { grid-column: span 6; } .span-4, .span-5, .span-7, .span-8 { grid-column: span 12; } .span-6 { grid-column: span 12; } }
+@media (max-width: 640px) { .span-3 { grid-column: span 12; } .top { flex-direction: column; } }
+
+.card { margin: 0; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; min-width: 0; }
+.card-h { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 10px; }
+.card h3 { margin: 0; font-size: 15px; font-weight: 650; }
+.cap { margin: 2px 0 0; color: var(--ink2); font-size: 13px; }
+.note { margin: 10px 0 0; color: var(--ink2); font-size: 12.5px; }
+.tbl-btn { border: 1px solid var(--border); background: none; border-radius: 6px; padding: 4px 10px; font-size: 12px; cursor: pointer; color: var(--ink2); white-space: nowrap; }
+.tbl-btn:hover { background: var(--wash); color: var(--ink); }
+.tbl-btn[aria-pressed="true"] { background: var(--ink); color: var(--surface); }
+.chart { position: relative; width: 100%; }
+.chart svg { display: block; overflow: visible; }
+.chart text { font-family: var(--font); }
+.empty { padding: 36px 16px; text-align: center; color: var(--ink2); border: 1px dashed var(--grid); border-radius: 8px; }
+
+/* leyenda */
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 0 0 10px; font-size: 12.5px; color: var(--ink2); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.key-rect { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+.key-line { width: 14px; height: 2px; border-radius: 1px; display: inline-block; }
+.key-tick { width: 2px; height: 12px; background: var(--ink); display: inline-block; }
+
+/* tabla */
+.table-view { overflow-x: auto; }
+.table-view table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+.table-view th, .table-view td { padding: 6px 8px; border-bottom: 1px solid var(--grid); text-align: left; }
+.table-view th { color: var(--ink2); font-weight: 600; }
+.table-view td.n, .table-view th.n { text-align: right; font-variant-numeric: tabular-nums; }
+
+/* tiles */
+.tile .label { font-size: 13px; color: var(--ink2); margin: 0 0 6px; }
+.tile .value { font-size: 28px; font-weight: 650; letter-spacing: -0.01em; margin: 0; line-height: 1.15; }
+.tile .unit { font-size: 15px; font-weight: 500; color: var(--ink2); margin-left: 2px; }
+.tile .detail { margin: 6px 0 0; font-size: 12.5px; color: var(--ink2); }
+.tile .detail strong { color: var(--ink); font-weight: 600; }
+.hero .value { font-size: 52px; }
+.hero { display: flex; flex-direction: column; justify-content: space-between; }
+.meter { margin-top: 12px; }
+.meter-track { height: 8px; border-radius: 4px; background: var(--track); overflow: hidden; }
+.meter-fill { height: 100%; border-radius: 4px; background: var(--accent); }
+.meter-legend { display: flex; justify-content: space-between; font-size: 12px; color: var(--ink2); margin-top: 6px; }
+.split { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 12px; font-size: 13px; color: var(--ink2); }
+.split span { display: inline-flex; align-items: center; gap: 6px; }
+.split strong { color: var(--ink); font-weight: 600; }
+.spark { margin-top: 8px; }
+.status-pill { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; color: var(--ink); font-weight: 600; }
+
+/* alertas */
+.alerts { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.alert { display: grid; grid-template-columns: 20px 1fr; gap: 10px; padding: 12px 12px; border-radius: 8px; background: var(--wash); }
+.alert-k { margin: 0; font-size: 11.5px; font-weight: 650; letter-spacing: 0.02em; text-transform: uppercase; color: var(--ink2); }
+.alert-t { margin: 1px 0 2px; font-weight: 650; font-size: 14px; }
+.alert-d { margin: 0; color: var(--ink2); font-size: 13px; }
+
+/* tooltip */
+#tt { position: fixed; z-index: 50; pointer-events: none; background: var(--surface); color: var(--ink); border: 1px solid var(--border);
+  border-radius: 8px; padding: 8px 10px; font-size: 12.5px; box-shadow: 0 6px 24px rgba(0,0,0,0.14); min-width: 160px; max-width: 320px; }
+#tt[hidden] { display: none; }
+#tt .tt-h { color: var(--ink2); margin-bottom: 4px; font-size: 12px; }
+#tt .tt-r { display: grid; grid-template-columns: 14px auto 1fr; gap: 8px; align-items: center; padding: 1px 0; }
+#tt .tt-r .k { width: 14px; height: 2px; border-radius: 1px; }
+#tt .tt-r strong { font-weight: 650; font-variant-numeric: tabular-nums; }
+#tt .tt-r span.l { color: var(--ink2); }
+#tt .tt-f { margin-top: 4px; padding-top: 4px; border-top: 1px solid var(--grid); color: var(--ink2); }
+
+.hit { fill: transparent; cursor: default; outline: none; }
+.hit:hover, .hit:focus-visible { fill: var(--wash); }
+
+footer { margin: 28px 0 40px; padding-top: 16px; border-top: 1px solid var(--grid); color: var(--ink2); font-size: 12.5px; }
+footer h2 { font-size: 13px; color: var(--ink); margin: 0 0 6px; }
+footer ul { margin: 0; padding-left: 18px; }
+footer li { margin: 3px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <p class="eyebrow">Grupo Greenvic <span class="badge">Mockup</span></p>
+      <h1>Tablero de costos · Campaña 2026-2027</h1>
+      <p class="sub">Corte al 27 de octubre de 2026 · Cifras en US$. Greenvic Perú SAC (costo agrícola) y Exportadora y Comercializadora Greenvic SAC (EYCG, costo industrial).</p>
+    </div>
+    <button class="theme-btn" id="themeBtn" type="button" aria-label="Cambiar entre modo claro y oscuro">Modo oscuro</button>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Secciones del tablero">
+    <button class="tab" role="tab" id="t-resumen" aria-controls="p-resumen" data-tab="resumen">Resumen</button>
+    <button class="tab" role="tab" id="t-campo" aria-controls="p-campo" data-tab="campo">Costo de campo</button>
+    <button class="tab" role="tab" id="t-packing" aria-controls="p-packing" data-tab="packing">Packing y exportación</button>
+    <button class="tab" role="tab" id="t-inversion" aria-controls="p-inversion" data-tab="inversion">Inversiones y otros gastos</button>
+    <button class="tab" role="tab" id="t-proveedores" aria-controls="p-proveedores" data-tab="proveedores">Proveedores e insumos</button>
+  </nav>
+
+  <!-- ============================== RESUMEN -->
+  <section class="panel" role="tabpanel" id="p-resumen" aria-labelledby="t-resumen" hidden>
+    <div class="grid">
+      <div class="card tile hero span-6" id="heroCampo"></div>
+      <div class="span-6 grid" style="gap:16px">
+        <div class="card tile span-6" id="kGv"></div>
+        <div class="card tile span-6" id="kEy"></div>
+        <div class="card tile span-6" id="kHa"></div>
+        <div class="card tile span-6" id="kInv"></div>
+      </div>
+
+      <figure class="card span-8" data-chart="gvMensual">
+        <header class="card-h"><div><h3>Gasto mensual por destino</h3><p class="cap">Greenvic Perú SAC · enero a octubre 2026</p></div><button class="tbl-btn" type="button" aria-pressed="false">Ver tabla</button></header>
+        <div class="legend"></div><div class="chart"></div><div class="table-view" hidden></div>
+        <figcaption class="note" id="gvMensualNote"></figcaption>
+      </figure>
+      <div class="card span-4">
+        <header class="card-h"><div><h3>Puntos de atención</h3><p class="cap">Lo que conviene revisar esta semana</p></div></header>
+        <ul class="alerts" id="alerts"></ul>
+      </div>
+
+      <figure class="card span-12" data-chart="gvDestinos">
+        <header class="card-h"><div><h3>¿En qué se fue el gasto?</h3><p class="cap">Greenvic Perú SAC · acumulado por destino contable, enero a octubre 2026</p></div><button class="tbl-btn" type="button" aria-pressed="false">Ver tabla</button></header>
+        <div class="legend"></div><div class="chart"></div><div class="table-view" hidden></div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============================== CAMPO -->
+  <section class="panel" role="tabpanel" id="p-campo" aria-labelledby="t-campo" hidden>
+    <div class="filters">
+      <span class="lbl" id="fundoLbl">Fundo</span>
+      <div class="seg" role="radiogroup" aria-labelledby="fundoLbl" id="fundoSeg">
+        <button type="button" role="radio" data-v="ambos">Ambos</button>
+        <button type="button" role="radio" data-v="sondrio"><span class="dot" style="background:var(--s1)"></span>Sondrio convencional · 45 ha</button>
+        <button type="button" role="radio" data-v="organico"><span class="dot" style="background:var(--s2)"></span>Orgánico · 77.2 ha</button>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="card tile span-3" id="cCosto"></div>
+      <div class="card tile span-3" id="cHa"></div>
+      <div class="card tile span-3" id="cMeta"></div>
+      <div class="card tile span-3" id="cPrev"></div>
+
+      <figure class="card span-7" data-chart="rubros">
+        <header class="card-h"><div><h3>Avance contra meta por rubro</h3><p class="cap">Costo acumulado de la campaña y meta total (línea vertical)</p></div><button class="tbl-btn" type="button" aria-pressed="false">Ver tabla</button></header>
+        <div class="legend"></div><div class="chart"></div><div class="table-view" hidden></div>
+        <figcaption class="note">El porcentaje es avance ÷ meta. <span aria-hidden="true">▲</span> marca los rubros que ya pasaron su meta.</figcaption>
+      </figure>
+      <div class="span-5 grid" style="gap:16px; align-content:start">
+        <figure class="card span-12" data-chart="campoMensual">
+          <header class="card-h"><div><h3>Costo de campo mensual</h3><p class="cap">Febrero a octubre 2026</p></div><button class="tbl-btn" type="button" aria-pressed="false">Ver tabla</button></header>
+          <div class="legend"></div><div class="chart"></div><div class="table-view" hidden></div>
+          <figcaption class="note">Sondrio suma lo registrado en Greenvic Perú y en la exportadora. El orgánico arranca la campaña 2026-27 en abril.</figcaption>
+        </figure>
+        <figure class="card span-12" data-chart="histHa">
+          <header class="card-h"><div><h3>Costo por hectárea por campaña</h3><p class="cap">Costo final de cada campaña, meta y avance 2026-27</p></div><button class="tbl-btn" type="button" aria-pressed="false">Ver tabla</button></header>
+          <div class="legend"></div><div class="chart"></div><div class="table-view" hidden></div>
+          <figcaption class="note" id="histNote"></figcaption>
+        </figure>
+      </div>
+
+      <figure class="card span-12" data-chart="sectores">
+        <header class="card-h"><div><h3>Costo directo por hectárea por sector</h3><p class="cap">Fundo orgánico · campaña 2026-27 · solo cargos directos al centro de costo de cada sector</p></div><button class="tbl-btn" type="button" aria-pressed="false">Ver tabla</button></header>
+        <div class="legend"></div><div class="chart"></div><div class="table-view" hidden></div>
+        <figcaption class="note" id="sectNote"></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============================== PACKING -->
+  <section class="panel" role="tabpanel" id="p-packing" aria-labelledby="t-packing" hidden>
+    <div class="grid">
+      <div class="card tile span-3" id="pCajas"></div>
+      <div class="card tile span-3" id="pConv"></div>
+      <div class="card tile span-3" id="pOrg"></div>
+      <div class="card tile span-3" id="pProy"></div>
+
+      <figure class="card span-7" data-chart="cajaComp">
+        <header class="card-h"><div><h3>Costo por caja de 8.2 kg, por componente</h3><p class="cap">Campaña 2025-2026 · uva convencional contra uva orgánica</p></div><button class="tbl-btn" type="button" aria-pressed="false">Ver tabla</button></header>
+        <div class="legend"></div><div class="chart"></div><div class="table-view" hidden></div>
+        <figcaption class="note">La materia prima explica el 59% del costo por caja orgánica. El servicio de limpia (US$4.27 por caja) solo aplica a la uva orgánica.</figcaption>
+      </figure>
+      <figure class="card span-5" data-chart="cajaHist">
+        <header class="card-h"><div><h3>Costo industrial por caja, sin materia prima</h3><p class="cap">Uva convencional · Fundo Sondrio</p></div><button class="tbl-btn" type="button" aria-pressed="false">Ver tabla</button></header>
+        <div class="legend"></div><div class="chart"></div><div class="table-view" hidden></div>
+        <figcaption class="note">Desde 2022-23 incluye la maquila tercerizada. No hay dato de 2023-24 ni de 2024-25 en los archivos.</figcaption>
+      </figure>
+
+      <figure class="card span-7" data-chart="eyMensual">
+        <header class="card-h"><div><h3>Gasto mensual de la exportadora por destino</h3><p class="cap">EYCG · enero a octubre 2026 (todas las campañas)</p></div><button class="tbl-btn" type="button" aria-pressed="false">Ver tabla</button></header>
+        <div class="legend"></div><div class="chart"></div><div class="table-view" hidden></div>
+        <figcaption class="note">De enero a marzo se cierra la cosecha 2025-26. Octubre trae US$545K de materia prima uva de la campaña 2026-27.</figcaption>
+      </figure>
+      <figure class="card span-5" data-chart="eyVentas">
+        <header class="card-h"><div><h3>Gastos de venta y exportación</h3><p class="cap">EYCG · acumulado 2026 por cuenta</p></div><button class="tbl-btn" type="button" aria-pressed="false">Ver tabla</button></header>
+        <div class="legend"></div><div class="chart"></div><div class="table-view" hidden></div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============================== INVERSIONES -->
+  <section class="panel" role="tabpanel" id="p-inversion" aria-labelledby="t-inversion" hidden>
+    <div class="grid">
+      <div class="card tile span-3" id="iTotal"></div>
+      <div class="card tile span-3" id="i30"></div>
+      <div class="card tile span-3" id="iOtros"></div>
+      <div class="card tile span-3" id="iAdm"></div>
+
+      <figure class="card span-7" data-chart="invProy">
+        <header class="card-h"><div><h3>Inversión por proyecto</h3><p class="cap">Greenvic Perú SAC · enero a octubre 2026</p></div><button class="tbl-btn" type="button" aria-pressed="false">Ver tabla</button></header>
+        <div class="legend"></div><div class="chart"></div><div class="table-view" hidden></div>
+        <figcaption class="note" id="invNote"></figcaption>
+      </figure>
+      <div class="span-5 grid" style="gap:16px; align-content:start">
+        <figure class="card span-12" data-chart="invMensual">
+          <header class="card-h"><div><h3>Inversión mensual</h3><p class="cap">Campaña 2026-27 · enero a octubre 2026</p></div><button class="tbl-btn" type="button" aria-pressed="false">Ver tabla</button></header>
+          <div class="legend"></div><div class="chart"></div><div class="table-view" hidden></div>
+        </figure>
+        <figure class="card span-12" data-chart="otrosGastos">
+          <header class="card-h"><div><h3>Otros gastos por concepto</h3><p class="cap">Greenvic Perú SAC · enero a octubre 2026</p></div><button class="tbl-btn" type="button" aria-pressed="false">Ver tabla</button></header>
+          <div class="legend"></div><div class="chart"></div><div class="table-view" hidden></div>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== PROVEEDORES -->
+  <section class="panel" role="tabpanel" id="p-proveedores" aria-labelledby="t-proveedores" hidden>
+    <div class="grid">
+      <div class="card tile span-3" id="vTotal"></div>
+      <div class="card tile span-3" id="vTop"></div>
+      <div class="card tile span-3" id="vIns"></div>
+      <div class="card tile span-3" id="vBloom"></div>
+
+      <figure class="card span-6" data-chart="proveedores">
+        <header class="card-h"><div><h3>Los 10 proveedores con más gasto</h3><p class="cap">Greenvic Perú SAC · campaña 2026-27 · destino principal debajo del nombre</p></div><button class="tbl-btn" type="button" aria-pressed="false">Ver tabla</button></header>
+        <div class="legend"></div><div class="chart"></div><div class="table-view" hidden></div>
+      </figure>
+      <figure class="card span-6" data-chart="insumos">
+        <header class="card-h"><div><h3>Insumos con más gasto</h3><p class="cap">Agroquímicos, fertilizantes, fitosanitarios y combustible · campaña 2026-27</p></div><button class="tbl-btn" type="button" aria-pressed="false">Ver tabla</button></header>
+        <div class="legend"></div><div class="chart"></div><div class="table-view" hidden></div>
+      </figure>
+      <figure class="card span-12" data-chart="insumosRubro">
+        <header class="card-h"><div><h3>Insumos por rubro</h3><p class="cap">Rubro 61 · campaña 2026-27</p></div><button class="tbl-btn" type="button" aria-pressed="false">Ver tabla</button></header>
+        <div class="legend"></div><div class="chart"></div><div class="table-view" hidden></div>
+        <figcaption class="note">En los libros de Greenvic Perú. Los agroquímicos de Sondrio convencional se registran casi todos en la exportadora.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <footer>
+    <h2>Notas sobre los datos</h2>
+    <ul id="notes"></ul>
+  </footer>
+</div>
+<div id="tt" role="tooltip" hidden></div>
+
+<script type="application/json" id="data">{"fundos":{"sondrio":{"nombre":"Sondrio convencional","ha":45.0,"avance":1168437.0,"meta":1283175.0,"prev_total":1801844.0,"prev_ha":40041.0,"hist_ha":{"2022-23":31880.0,"2023-24":30443.0,"2024-25":34403.0,"2025-26":40041.0},"rubros":[{"rubro":"Agroquímicos","avance":269178.0,"meta":292500.0},{"rubro":"Fertilizantes","avance":140641.0,"meta":112500.0},{"rubro":"Mano de obra","avance":376999.0,"meta":495000.0},{"rubro":"Agua","avance":46558.0,"meta":58500.0},{"rubro":"Alquiler de terreno","avance":79554.0,"meta":115875.0},{"rubro":"Maquinaria","avance":45929.0,"meta":45000.0},{"rubro":"Transporte de personal","avance":48951.0,"meta":54000.0},{"rubro":"EPP","avance":6166.0,"meta":6300.0},{"rubro":"Indirecto","avance":67108.0,"meta":76500.0},{"rubro":"Depreciación","avance":-11093.0,"meta":11250.0},{"rubro":"Utilidades (mano de obra)","avance":77146.0,"meta":0.0},{"rubro":"Mantenimiento (parrón, malla, pozos)","avance":21299.0,"meta":15750.0}],"split":{"greenvic":454795.0,"eycg":702223.0}},"organico":{"nombre":"Orgánico","ha":77.24,"avance":2010347.0,"meta":4129263.0,"prev_total":3306672.0,"prev_ha":53593.0,"hist_ha":{"2022-23":48077.0,"2023-24":48975.0,"2024-25":52614.0,"2025-26":53593.0},"rubros":[{"rubro":"Fertilizantes","avance":136190.0,"meta":617920.0},{"rubro":"Fitosanitarios","avance":359024.0,"meta":540680.0},{"rubro":"Materia orgánica","avance":0.0,"meta":34758.0},{"rubro":"Mano de obra","avance":520757.0,"meta":1467560.0},{"rubro":"Agua","avance":134504.0,"meta":293512.0},{"rubro":"Alquiler de terreno","avance":30910.0,"meta":40950.0},{"rubro":"Maquinaria","avance":59848.0,"meta":123584.0},{"rubro":"Transporte de personal","avance":42474.0,"meta":146756.0},{"rubro":"EPP","avance":10531.0,"meta":13903.0},{"rubro":"Indirecto","avance":469392.0,"meta":308960.0},{"rubro":"Depreciación","avance":221993.0,"meta":502060.0},{"rubro":"Mantenimiento (parrón, malla, pozos)","avance":24726.0,"meta":38620.0}],"variedades":[{"variedad":"Sweet Celebration","ha":36.25},{"variedad":"Sweet Globe (Organik)","ha":29.29},{"variedad":"Sweet Globe (Sondrio org.)","ha":11.7}]}},"campo_mensual":{"meses":["Feb","Mar","Abr","May","Jun","Jul","Ago","Set","Oct"],"sondrio":[194633.0,98704.0,48940.0,267095.0,120085.0,123201.0,180486.0,33431.0,47071.0],"organico":[0.0,0.0,176485.0,202618.0,141723.0,294065.0,222332.0,401514.0,503682.0]},"gv_mensual":{"meses":["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Set","Oct"],"campo":[0.0,194633.0,98704.0,225425.0,295986.0,180528.0,223001.0,279345.0,368748.0,504285.0],"inversion":[693.0,59300.0,145857.0,105766.0,190437.0,139474.0,132964.0,116783.0,211835.0,147237.0],"administracion":[0.0,15877.0,42656.0,49002.0,47238.0,43186.0,50651.0,55058.0,45457.0,12275.0],"financieros":[0.0,0.0,0.0,72935.0,5753.0,25318.0,49106.0,12363.0,24359.0,21618.0],"otros":[0.0,0.0,3259.0,191229.0,20304.0,43049.0,34786.0,22483.0,23747.0,7532.0]},"gv_destinos":[{"destino":"Costo de campo","valor":2370655.0},{"destino":"Inversión","valor":1250345.0},{"destino":"Gastos de administración","valor":361399.0},{"destino":"Otros gastos","valor":232369.0},{"destino":"Gastos financieros","valor":116547.0},{"destino":"Ajuste por tipo de cambio","valor":94904.0},{"destino":"Packing","valor":61894.0},{"destino":"Servicios","valor":49717.0},{"destino":"Gastos de ventas","valor":2409.0}],"gv_total":4540240.0,"inversion_proyectos":[{"proyecto":"Proyecto Sweet Globe 30 ha (orgánico Sondrio)","valor":354241.0},{"proyecto":"Parrón Sweet Globe 30 ha (orgánico Sondrio)","valor":224553.0},{"proyecto":"Proyecto Sweet Globe 11.10 ha","valor":214902.0},{"proyecto":"Proyecto Sweet Celebration 7.65 ha","valor":133565.0},{"proyecto":"Conexión de agua Fundo Rocha","valor":64685.0},{"proyecto":"Proyecto Sweet Celebration 2.95 ha","valor":52531.0},{"proyecto":"Conexión de agua proyecto 20 ha","valor":43784.0},{"proyecto":"Proyecto Sweet Globe 10 ha (orgánico Sondrio)","valor":41789.0},{"proyecto":"Mejora de piscina Organik Sondrio","valor":41580.0},{"proyecto":"Riego Sweet Globe 30 ha (orgánico Sondrio)","valor":39513.0},{"proyecto":"Garita Organik San Eudocio","valor":25475.0},{"proyecto":"Piscina Yactayo","valor":24567.0},{"proyecto":"Mejora sist riego 3.30 ha sweet cele","valor":16644.0},{"proyecto":"Cerco malla antiaf. organik sondrio","valor":14745.0},{"proyecto":"Mejora parron 11.10 ha sweet globe","valor":14667.0},{"proyecto":"Electrificacion pozo yactayo","valor":14641.0},{"proyecto":"Mantenimiento pozo 2m","valor":11301.0},{"proyecto":"Ampliacion lineas de packing","valor":7359.0},{"proyecto":"Ampliacion techo maquinaria","valor":5674.0},{"proyecto":"Proyecto ensayo variedades organic ha 1.25","valor":5278.0},{"proyecto":"Mejora parron 7.65 ha sweet celebrat","valor":3667.0},{"proyecto":"Reservorio cap 4200 m3 san eudocio","valor":2821.0},{"proyecto":"Vestuario aplicacion pozo 6","valor":1524.0},{"proyecto":"Vestuario aplicacion maquinaria","valor":1183.0},{"proyecto":"Parron 2.95 ha sweet celebration","valor":950.0},{"proyecto":"Vestuario aplicacion organik sondrio","valor":559.0},{"proyecto":"Casteta prep product organik sondrio","valor":557.0},{"proyecto":"Proyecto cereza - pirca 0.5 ha","valor":32.0},{"proyecto":"Mejora sist riego 11.10 ha sweet glo","valor":1.0}],"inversion_proyectos_total":1362790.0,"inversion_enero_otras":113111.0,"otros_gastos":[{"concepto":"Baja activo biológico Greenvic","valor":163809.0},{"concepto":"Donación a terceros","valor":22958.0},{"concepto":"Mantenimiento de parrón Organik","valor":15248.0},{"concepto":"Mantenimiento de pozos Sondrio","valor":9895.0},{"concepto":"Bajas de activos","valor":8789.0},{"concepto":"Otros gastos no deducibles","valor":7701.0},{"concepto":"Mantenimiento de parrón Organik Sondrio","valor":3275.0},{"concepto":"Mantenimiento de pozo Organik Sondrio","valor":2605.0},{"concepto":"Baja activo biológico Organik","valor":2323.0},{"concepto":"Mantenimiento de cerco Organik","valor":1804.0},{"concepto":"Mantenimiento de pozos Greenvic","valor":1493.0},{"concepto":"Mantenimiento de parrón Sondrio","valor":1022.0},{"concepto":"Mantenimiento de pozos Organik","valor":257.0},{"concepto":"Mantenimiento de cerco Sondrio","valor":87.0},{"concepto":"Mantenimiento de malla Organik Sondrio","valor":43.0},{"concepto":"Mantenimiento de malla Sondrio","valor":6.0}],"otros_gastos_total":241314.0,"packing_caja":{"cajas_conv":176376.0,"cajas_org":188673.0,"total_conv":2133884.0,"total_org":5298444.0,"componentes":[{"componente":"Materia prima uva","conv":4.97,"org":16.5},{"componente":"Materiales y envases","conv":2.09,"org":1.74},{"componente":"Servicio de maquila","conv":2.5,"org":2.76},{"componente":"Servicio de limpia","conv":0.0,"org":4.27},{"componente":"Servicio de frío","conv":0.69,"org":0.73},{"componente":"Transporte (MP, PT, jabas)","conv":0.38,"org":0.19},{"componente":"Indirecto y depreciación","conv":0.33,"org":0.57},{"componente":"Exportación (logística, seguro, SENASA)","conv":1.13,"org":1.32}],"proy_cajas_conv":130000.0,"proy_cajas_org":225000.0,"mp_2627":544622.0},"caja_hist":[{"campana":"2018-19","costo":686985.0,"cajas":157185.0,"caja":4.37},{"campana":"2019-20","costo":558192.0,"cajas":175296.0,"caja":3.18},{"campana":"2020-21","costo":556859.0,"cajas":165081.0,"caja":3.37},{"campana":"2021-22","costo":729663.0,"cajas":176452.0,"caja":4.14},{"campana":"2022-23","costo":993296.0,"cajas":164774.0,"caja":6.03},{"campana":"2023-24","costo":null,"cajas":null,"caja":null},{"campana":"2024-25","costo":null,"cajas":null,"caja":null},{"campana":"2025-26","costo":1058485.0,"cajas":176376.0,"caja":6.0}],"eycg_ventas":[{"concepto":"Operador logístico integral","valor":131147.0},{"concepto":"Otros gastos logísticos","valor":90455.0},{"concepto":"Outsourcing contable","valor":27710.0},{"concepto":"Seguro de exportación","valor":26939.0},{"concepto":"Gastos SENASA","valor":17188.0},{"concepto":"Embarque SPL","valor":8310.0},{"concepto":"Transporte de carga marítimo","valor":5700.0},{"concepto":"Certificados de exportación","valor":4997.0},{"concepto":"Auditoría financiera","valor":880.0},{"concepto":"Alimentación","valor":22.0}],"movimientos_agr":136582,"proveedores":[{"proveedor":"Bloom Fresh International","valor":294884.0,"destino":"Costo de campo"},{"proveedor":"Vivero Los Vinedos SAC","valor":281750.0,"destino":"Inversión"},{"proveedor":"Consorcio Electrico de Villacuri SA","valor":102341.0,"destino":"Costo de campo"},{"proveedor":"Serviriego Peru EIRL","valor":63572.0,"destino":"Inversión"},{"proveedor":"Jonas Diaz Yactayo Silvestre","valor":53553.0,"destino":"Costo de campo"},{"proveedor":"Security A & M Peru SAC","valor":46366.0,"destino":"Costo de campo"},{"proveedor":"Banco BBVA Peru","valor":42485.0,"destino":"Gastos financieros"},{"proveedor":"Parrones del Sur EIRL","valor":39000.0,"destino":"Inversión"},{"proveedor":"Agricola Cava SAC","valor":35829.0,"destino":"Costo de campo"},{"proveedor":"Nestor Barja Puma","valor":22912.0,"destino":"Costo de campo"}],"proveedores_total":1482132.0,"proveedores_n":296,"bloom_fresh":{"valor":294884.0,"periodos":[9,10]},"insumos":[{"insumo":"Ácido abscísico 10%","valor":45208.0,"rubro":"Agroquímicos"},{"insumo":"Petróleo (diésel)","valor":32531.0,"rubro":"Maquinaria"},{"insumo":"Sulfato de Magnesio Cristalizado","valor":22881.0,"rubro":"Fertilizantes"},{"insumo":"Root Hor","valor":20468.0,"rubro":"Agroquímicos"},{"insumo":"Perpetuo","valor":19508.0,"rubro":"Fitosanitarios"},{"insumo":"Ausoil","valor":17151.0,"rubro":"Fitosanitarios"},{"insumo":"Ácido fosfórico GA","valor":16991.0,"rubro":"Fertilizantes"},{"insumo":"Kelpak","valor":16213.0,"rubro":"Fitosanitarios"},{"insumo":"Gigakelp +","valor":16063.0,"rubro":"Fitosanitarios"},{"insumo":"Ultrasol Calcium","valor":12290.0,"rubro":"Fitosanitarios"},{"insumo":"Atena","valor":11495.0,"rubro":"Fitosanitarios"},{"insumo":"Phytoinmunol","valor":11348.0,"rubro":"Fitosanitarios"}],"insumos_rubro":{"Agroquímicos":37096.0,"Fertilizantes":196152.0,"Fitosanitarios":362326.0,"Materiales":12326.0},"sectores":[{"sector":"Organik · Sec 5","variedad":"Sweet Celebration","ha":1.12,"valor":62541.0,"por_ha":55841.0},{"sector":"Organik · Sec 12","variedad":"Sweet Celebration","ha":0.42,"valor":10283.0,"por_ha":24484.0},{"sector":"Organik · Sec 2","variedad":"Sweet Celebration","ha":4.15,"valor":99381.0,"por_ha":23947.0},{"sector":"Organik · Sec 15A","variedad":"Sweet Globe","ha":5.48,"valor":131026.0,"por_ha":23910.0},{"sector":"Organik · Sec 9","variedad":"Sweet Globe","ha":5.11,"valor":119450.0,"por_ha":23376.0},{"sector":"Organik · Sec 3","variedad":"Sweet Celebration","ha":1.04,"valor":24151.0,"por_ha":23222.0},{"sector":"Organik · Sec 15","variedad":"Sweet Celebration","ha":3.57,"valor":81616.0,"por_ha":22862.0},{"sector":"Organik · Sec 8","variedad":"Sweet Celebration","ha":7.5,"valor":166658.0,"por_ha":22221.0},{"sector":"Organik · Sec 4","variedad":"Sweet Globe","ha":1.26,"valor":27727.0,"por_ha":22006.0},{"sector":"Organik · Sec 2A","variedad":"Sweet Celebration","ha":1.03,"valor":22598.0,"por_ha":21939.0},{"sector":"Organik · Sec 16","variedad":"Sweet Celebration","ha":3.5,"valor":76344.0,"por_ha":21813.0},{"sector":"Organik · Sec 14","variedad":"Sweet Globe","ha":2.66,"valor":56110.0,"por_ha":21094.0},{"sector":"Organik · Sec 1","variedad":"Sweet Celebration","ha":3.35,"valor":69571.0,"por_ha":20767.0},{"sector":"Organik · Sec 6","variedad":"Sweet Globe","ha":1.12,"valor":23030.0,"por_ha":20562.0},{"sector":"Organik · Sec 17","variedad":"Sweet Celebration","ha":3.5,"valor":71864.0,"por_ha":20533.0},{"sector":"Organik · Sec 10","variedad":"Sweet Globe","ha":2.5,"valor":50124.0,"por_ha":20050.0},{"sector":"Organik · Sec 7","variedad":"Sweet Celebration","ha":3.5,"valor":66491.0,"por_ha":18997.0},{"sector":"Organik · Sec 1A","variedad":"Sweet Globe","ha":1.69,"valor":31028.0,"por_ha":18360.0},{"sector":"Sondrio org. · Sec 1","variedad":"Sweet Globe","ha":11.7,"valor":209783.0,"por_ha":17930.0},{"sector":"Organik · Sec 11","variedad":"Sweet Celebration","ha":3.5,"valor":61866.0,"por_ha":17676.0},{"sector":"Organik · Sec 5","variedad":"Sweet Globe","ha":9.32,"valor":164251.0,"por_ha":17624.0}],"sectores_no_asignado":472274.0,"variedad_ha":{"Sweet Globe":19895.0,"Sweet Celebration":22481.0},"movimientos_ind":10519,"eycg_mensual":{"meses":["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Set","Oct"],"packing":[1334137.0,2049462.0,1862680.0,-12739.0,18481.0,3449.0,3449.0,1070.0,35182.0,544622.0],"campo":[0.0,0.0,0.0,-0.0,173727.0,81280.0,194273.0,123472.0,66197.0,46468.0],"ventas":[38332.0,115551.0,104055.0,12844.0,8436.0,14129.0,0.0,0.0,20000.0,0.0],"financieros":[295258.0,15427.0,30790.0,1210.0,11844.0,2855.0,-3003.0,-2704.0,21867.0,-15915.0],"otros":[8586.0,6769.0,10029.0,3306.0,17290.0,13805.0,9979.0,13133.0,29220.0,2253.0]},"eycg_campana":{"CAMPAÑA 2025-2026":{"COSTO PACKING":5252022.0,"G. ADMINISTRACION":28690.0,"G. VENTAS":270782.0,"G. FINANCIEROS":342069.0},"CAMPAÑA 2026-2027":{"COSTO CAMPO":685417.0,"COSTO PACKING":587770.0,"G. ADMINISTRACION":75392.0,"G. VENTAS":42565.0,"G. FINANCIEROS":15561.0,"OTROS GASTOS":10289.0}},"eycg_fin_2526":{"total":342069.0,"dif_cambio":337782.0}}</script>
+<script>
+(function () {
+'use strict';
+const D = JSON.parse(document.getElementById('data').textContent);
+const NS = 'http://www.w3.org/2000/svg';
+
+/* ------------------------------------------------------------ utilidades */
+const $ = (s, r = document) => r.querySelector(s);
+function h(tag, cls, text) { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+function s(tag, attrs, parent) {
+  const e = document.createElementNS(NS, tag);
+  for (const k in attrs) { if (k === 'style') Object.assign(e.style, attrs[k]); else e.setAttribute(k, attrs[k]); }
+  if (parent) parent.appendChild(e);
+  return e;
+}
+function st(parent, x, y, text, attrs) { const t = s('text', Object.assign({ x, y }, attrs || {}), parent); t.textContent = text; return t; }
+const sum = a => a.reduce((x, y) => x + (y || 0), 0);
+const nf0 = new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 });
+const nf2 = new Intl.NumberFormat('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+function usd(v, opt) {
+  opt = opt || {};
+  if (v == null || isNaN(v)) return 's/d';
+  const a = Math.abs(v), sg = v < 0 ? '−' : '';
+  if (opt.full) return sg + 'US$' + nf0.format(a);
+  if (opt.cents) return sg + 'US$' + nf2.format(a);
+  if (a >= 1e6) return sg + 'US$' + (a / 1e6).toFixed(opt.dec != null ? opt.dec : 2) + 'M';
+  if (a >= 1e3) return sg + 'US$' + (a / 1e3).toFixed(opt.dec != null ? opt.dec : (a >= 1e5 ? 0 : 1)) + 'K';
+  return sg + 'US$' + nf0.format(a);
+}
+function axisFmt(v) {
+  const a = Math.abs(v), sg = v < 0 ? '−' : '';
+  if (a === 0) return '0';
+  if (a >= 1e6) return sg + +(a / 1e6).toFixed(1) + 'M';
+  if (a >= 1e3) return sg + +(a / 1e3).toFixed(0) + 'K';
+  return sg + +a.toFixed(2);
+}
+const pct = (v, d) => (v * 100).toFixed(d || 0) + '%';
+function niceTicks(min, max, n) {
+  if (max === min) max = min + 1;
+  const raw = (max - min) / n, mag = Math.pow(10, Math.floor(Math.log10(raw))), e = raw / mag;
+  const step = (e >= 7.5 ? 10 : e >= 3.5 ? 5 : e >= 1.5 ? 2 : 1) * mag;
+  const lo = Math.floor(min / step) * step, hi = Math.ceil(max / step) * step, t = [];
+  for (let v = lo; v <= hi + step / 2; v += step) t.push(+v.toFixed(10));
+  return t;
+}
+const ctx = document.createElement('canvas').getContext('2d');
+function tw(text, size, weight) { ctx.font = (weight || 400) + ' ' + (size || 12) + 'px ' + getComputedStyle(document.body).fontFamily; return ctx.measureText(text).width; }
+function fit(text, max, size) {
+  if (tw(text, size) <= max) return text;
+  let t = text; while (t.length > 3 && tw(t + '…', size) > max) t = t.slice(0, -1);
+  return t + '…';
+}
+function pathH(x, y, w, hh, r) { // barra horizontal, extremo derecho redondeado
+  if (w <= 0) return '';
+  r = Math.min(r == null ? 4 : r, w, hh / 2);
+  return 'M' + x + ',' + y + 'H' + (x + w - r) + 'A' + r + ',' + r + ' 0 0 1 ' + (x + w) + ',' + (y + r) + 'V' + (y + hh - r) + 'A' + r + ',' + r + ' 0 0 1 ' + (x + w - r) + ',' + (y + hh) + 'H' + x + 'Z';
+}
+function pathV(x, yTop, w, hh, round, down) { // columna; round = extremo de dato redondeado
+  if (hh <= 0) return '';
+  const r = round ? Math.min(4, w / 2, hh) : 0;
+  if (!down) return 'M' + x + ',' + (yTop + hh) + 'V' + (yTop + r) + (r ? 'A' + r + ',' + r + ' 0 0 1 ' + (x + r) + ',' + yTop : '') + 'H' + (x + w - r) + (r ? 'A' + r + ',' + r + ' 0 0 1 ' + (x + w) + ',' + (yTop + r) : '') + 'V' + (yTop + hh) + 'Z';
+  const yb = yTop + hh;
+  return 'M' + x + ',' + yTop + 'V' + (yb - r) + (r ? 'A' + r + ',' + r + ' 0 0 0 ' + (x + r) + ',' + yb : '') + 'H' + (x + w - r) + (r ? 'A' + r + ',' + r + ' 0 0 0 ' + (x + w) + ',' + (yb - r) : '') + 'V' + yTop + 'Z';
+}
+
+/* ------------------------------------------------------------ tooltip */
+const tt = $('#tt');
+function tip(evt, title, rows, foot) {
+  tt.replaceChildren();
+  tt.appendChild(h('div', 'tt-h', title));
+  rows.forEach(r => {
+    const row = h('div', 'tt-r');
+    const k = h('span', 'k'); k.style.background = r.color || 'transparent'; row.appendChild(k);
+    row.appendChild(h('strong', null, r.value));
+    row.appendChild(h('span', 'l', r.label));
+    tt.appendChild(row);
+  });
+  if (foot) tt.appendChild(h('div', 'tt-f', foot));
+  tt.hidden = false;
+  let x, y;
+  if (evt && evt.clientX != null && evt.type.indexOf('pointer') === 0) { x = evt.clientX; y = evt.clientY; }
+  else { const b = evt.target.getBoundingClientRect(); x = b.left + b.width / 2; y = b.top; }
+  const w = tt.offsetWidth, hh = tt.offsetHeight;
+  let left = x + 14, top = y + 14;
+  if (left + w > window.innerWidth - 8) left = x - w - 14;
+  if (top + hh > window.innerHeight - 8) top = y - hh - 14;
+  tt.style.left = Math.max(8, left) + 'px'; tt.style.top = Math.max(8, top) + 'px';
+}
+function untip() { tt.hidden = true; }
+function hit(el, fn) {
+  el.setAttribute('tabindex', '0');
+  el.classList.add('hit');
+  el.addEventListener('pointermove', e => fn(e));
+  el.addEventListener('focus', e => fn(e));
+  el.addEventListener('pointerleave', untip);
+  el.addEventListener('blur', untip);
+}
+
+/* ------------------------------------------------------------ piezas comunes */
+function legend(card, items) {
+  const lg = card.querySelector('.legend'); lg.replaceChildren();
+  if (items.length < 2) { lg.hidden = true; return; }
+  lg.hidden = card.classList.contains('show-table');
+  items.forEach(it => {
+    const sp = h('span');
+    const k = h('span', it.kind === 'line' ? 'key-line' : it.kind === 'tick' ? 'key-tick' : 'key-rect');
+    if (it.kind !== 'tick') k.style.background = it.color;
+    sp.appendChild(k); sp.appendChild(document.createTextNode(it.label));
+    lg.appendChild(sp);
+  });
+}
+function table(card, spec) {
+  const tv = card.querySelector('.table-view'); tv.replaceChildren();
+  const t = h('table'), th = h('thead'), tr = h('tr');
+  spec.cols.forEach((c, i) => { const e = h('th', spec.num && spec.num[i] ? 'n' : null, c); e.scope = 'col'; tr.appendChild(e); });
+  th.appendChild(tr); t.appendChild(th);
+  const tb = h('tbody');
+  spec.rows.forEach(r => { const row = h('tr'); r.forEach((c, i) => row.appendChild(h('td', spec.num && spec.num[i] ? 'n' : null, c))); tb.appendChild(row); });
+  t.appendChild(tb); tv.appendChild(t);
+}
+function svgFor(card, height, label) {
+  const box = card.querySelector('.chart'); box.replaceChildren();
+  const W = Math.max(280, box.clientWidth);
+  const svg = s('svg', { width: W, height: height, viewBox: '0 0 ' + W + ' ' + height, role: 'img', 'aria-label': label }, box);
+  return { svg, W };
+}
+function cardTitle(card) { const t = card.querySelector('h3'); return t ? t.textContent : ''; }
+
+/* ------------------------------------------------------------ barras horizontales */
+// o: {rows:[{label, sub, values:{k:v}, target, color, tipFoot}], series:[{key,label,color}], mode:'stack'|'group', fmt, valueLabel(row), flag(row)}
+function hbar(card, o) {
+  const mode = o.mode || 'stack', n = o.series.length;
+  const sub = o.rows.some(r => r.sub);
+  const rowH = o.rowH || (mode === 'group' ? n * 13 + (n - 1) * 2 + 14 : sub ? 40 : 30);
+  const barT = mode === 'group' ? 13 : Math.min(18, rowH - 14);
+  const box = card.querySelector('.chart');
+  const W0 = Math.max(280, box.clientWidth);
+  const labW = Math.min(W0 * (o.labelShare || 0.38), Math.max(...o.rows.map(r => Math.max(tw(r.label, 12.5), r.sub ? tw(r.sub, 11.5) : 0))) + 14);
+  const vlabels = o.rows.map(r => o.valueLabel ? o.valueLabel(r) : '');
+  const valW = mode === 'group' ? 64 : Math.max(48, ...vlabels.map(t => tw(t, 12))) + (o.flag ? 22 : 0) + 12;
+  const top = 4, axisH = 22, H = top + o.rows.length * rowH + axisH;
+  const { svg, W } = svgFor(card, H, cardTitle(card));
+  const x0 = labW, x1 = W - valW;
+  let max = 0;
+  o.rows.forEach(r => {
+    const vals = o.series.map(se => Math.max(0, r.values[se.key] || 0));
+    max = Math.max(max, mode === 'stack' ? sum(vals) : Math.max(...vals), r.target || 0);
+  });
+  const ticks = niceTicks(0, max, W < 520 ? 3 : 5), tmax = ticks[ticks.length - 1];
+  const X = v => x0 + (Math.max(0, v) / tmax) * (x1 - x0);
+  const yAxis = top + o.rows.length * rowH;
+  ticks.forEach(t => {
+    s('line', { x1: X(t), x2: X(t), y1: top, y2: yAxis, 'stroke-width': 1, style: { stroke: t === 0 ? 'var(--axis)' : 'var(--grid)' } }, svg);
+    st(svg, X(t), yAxis + 15, (o.axisFmt || axisFmt)(t), { 'text-anchor': 'middle', 'font-size': 11, style: { fill: 'var(--muted)', fontVariantNumeric: 'tabular-nums' } });
+  });
+  o.rows.forEach((r, i) => {
+    const y = top + i * rowH, cy = y + rowH / 2;
+    const ly = r.sub ? cy - 3 : cy + 4;
+    st(svg, x0 - 10, ly, fit(r.label, labW - 14, 12.5), { 'text-anchor': 'end', 'font-size': 12.5, style: { fill: 'var(--ink)' } });
+    if (r.sub) st(svg, x0 - 10, cy + 12, fit(r.sub, labW - 14, 11.5), { 'text-anchor': 'end', 'font-size': 11.5, style: { fill: 'var(--muted)' } });
+    let endX = x0;
+    if (mode === 'stack') {
+      const segs = o.series.map(se => ({ se, v: Math.max(0, r.values[se.key] || 0) })).filter(g => g.v > 0);
+      let acc = 0;
+      segs.forEach((g, j) => {
+        const xa = X(acc) + (j > 0 ? 2 : 0), xb = X(acc + g.v), last = j === segs.length - 1;
+        const w = xb - xa;
+        if (w > 0.4) s('path', { d: last ? pathH(xa, cy - barT / 2, w, barT) : 'M' + xa + ',' + (cy - barT / 2) + 'h' + w + 'v' + barT + 'h' + (-w) + 'Z', style: { fill: r.color || g.se.color } }, svg);
+        acc += g.v;
+      });
+      endX = X(acc);
+    } else {
+      const gh = n * barT + (n - 1) * 2, gy = cy - gh / 2;
+      o.series.forEach((se, j) => {
+        const v = r.values[se.key] || 0, by = gy + j * (barT + 2);
+        if (v > 0) s('path', { d: pathH(x0, by, X(v) - x0, barT), style: { fill: se.color } }, svg);
+        st(svg, X(v) + 6, by + barT - 3, o.fmt(v), { 'font-size': 11.5, style: { fill: 'var(--ink2)', fontVariantNumeric: 'tabular-nums' } });
+        endX = Math.max(endX, X(v));
+      });
+    }
+    if (r.target) {
+      const tx = X(r.target);
+      s('line', { x1: tx, x2: tx, y1: cy - barT / 2 - 4, y2: cy + barT / 2 + 4, 'stroke-width': 2, 'stroke-linecap': 'round', style: { stroke: 'var(--ink)' } }, svg);
+      endX = Math.max(endX, tx);
+    }
+    if (mode === 'stack' && vlabels[i]) {
+      let lx = endX + 8;
+      const fl = o.flag && o.flag(r);
+      if (fl) { flagIcon(svg, lx, cy - 7, fl); lx += 18; }
+      st(svg, lx, cy + 4, vlabels[i], { 'font-size': 12, style: { fill: 'var(--ink2)', fontVariantNumeric: 'tabular-nums' } });
+    }
+    const hr = s('rect', { x: 0, y: y, width: W, height: rowH, rx: 4 }, svg);
+    svg.insertBefore(hr, svg.firstChild);
+    hit(hr, e => {
+      const rows = o.series.filter(se => r.values[se.key] != null && (n > 1 || true)).map(se => ({ color: r.color || se.color, value: o.fmt(r.values[se.key]), label: se.label }));
+      if (r.target) rows.push({ color: 'var(--ink)', value: o.fmt(r.target), label: 'Meta' });
+      tip(e, r.label + (r.sub ? ' · ' + r.sub : ''), rows, r.tipFoot);
+    });
+  });
+}
+function flagIcon(svg, x, y, kind) {
+  const c = { critical: 'var(--critical)', serious: 'var(--serious)', warning: 'var(--warning)' }[kind] || 'var(--critical)';
+  const g = s('g', { transform: 'translate(' + x + ',' + y + ')', 'aria-hidden': 'true' }, svg);
+  s('path', { d: 'M7 0.8 L13.4 12.6 H0.6 Z', 'stroke-linejoin': 'round', style: { fill: c } }, g);
+  s('rect', { x: 6.2, y: 4.2, width: 1.6, height: 4.6, rx: 0.8, style: { fill: kind === 'warning' ? '#0b0b0b' : '#ffffff' } }, g);
+  s('circle', { cx: 7, cy: 10.6, r: 0.95, style: { fill: kind === 'warning' ? '#0b0b0b' : '#ffffff' } }, g);
+}
+
+/* ------------------------------------------------------------ columnas */
+// o: {cats, series:[{key,label,color,values}], mode:'stack'|'group', fmt, height, topLabels, totalInTip}
+function cols(card, o) {
+  const mode = o.mode || 'stack', n = o.series.length, H = o.height || 260;
+  const box = card.querySelector('.chart');
+  const W0 = Math.max(280, box.clientWidth);
+  let ymax = 0, ymin = 0;
+  o.cats.forEach((c, i) => {
+    const vals = o.series.map(se => se.values[i]);
+    if (mode === 'stack') { ymax = Math.max(ymax, sum(vals.filter(v => v > 0))); ymin = Math.min(ymin, sum(vals.filter(v => v < 0))); }
+    else vals.forEach(v => { if (v != null) { ymax = Math.max(ymax, v); ymin = Math.min(ymin, v); } });
+  });
+  const smallNeg = ymin < 0 && -ymin < ymax * 0.08;
+  const ticks = niceTicks(smallNeg ? 0 : ymin, ymax, 4), tTop = ticks[ticks.length - 1], tBot = smallNeg ? ymin * 1.4 : ticks[0];
+  const padL = Math.max(...ticks.map(t => tw(axisFmt(t), 11))) + 10, padR = 6, padT = o.topLabels ? 20 : 8;
+  const plotW0 = W0 - padL - padR, band0 = plotW0 / o.cats.length;
+  const twoLine = o.cats.some(c => tw(c, 11.5) > band0 - 4);
+  const padB = twoLine ? 38 : 24;
+  const { svg, W } = svgFor(card, H, cardTitle(card));
+  const plotW = W - padL - padR, plotH = H - padT - padB, band = plotW / o.cats.length;
+  const Y = v => padT + (tTop - v) / (tTop - tBot) * plotH;
+  ticks.forEach(t => {
+    s('line', { x1: padL, x2: W - padR, y1: Y(t), y2: Y(t), 'stroke-width': 1, style: { stroke: t === 0 ? 'var(--axis)' : 'var(--grid)' } }, svg);
+    st(svg, padL - 8, Y(t) + 4, axisFmt(t), { 'text-anchor': 'end', 'font-size': 11, style: { fill: 'var(--muted)', fontVariantNumeric: 'tabular-nums' } });
+  });
+  const bw = mode === 'stack' ? Math.min(24, band * 0.62) : Math.min(18, (band * 0.78 - (n - 1) * 2) / n);
+  o.cats.forEach((c, i) => {
+    const cx = padL + band * (i + 0.5);
+    if (mode === 'stack') {
+      const x = cx - bw / 2;
+      const pos = o.series.map((se, j) => ({ se, v: se.values[i] || 0, j })).filter(g => g.v > 0);
+      const neg = o.series.map((se, j) => ({ se, v: se.values[i] || 0, j })).filter(g => g.v < 0);
+      let acc = 0;
+      pos.forEach((g, k) => {
+        const yTop = Y(acc + g.v), yBot = Y(acc) - (k > 0 ? 2 : 0), hh = yBot - yTop;
+        if (hh > 0.3) s('path', { d: pathV(x, yTop, bw, hh, k === pos.length - 1), style: { fill: g.se.color } }, svg);
+        acc += g.v;
+      });
+      let nacc = 0;
+      neg.forEach((g, k) => {
+        const yTop = Y(nacc) + (k > 0 ? 2 : 1), yBot = Y(nacc + g.v), hh = yBot - yTop;
+        if (hh > 0.3) s('path', { d: pathV(x, yTop, bw, hh, k === neg.length - 1, true), style: { fill: g.se.color } }, svg);
+        nacc += g.v;
+      });
+      if (o.topLabels) {
+        const tot = sum(o.series.map(se => se.values[i]));
+        st(svg, cx, Y(Math.max(acc, 0)) - 6, o.series.every(se => se.values[i] == null) ? 's/d' : o.fmt(tot), { 'text-anchor': 'middle', 'font-size': 11.5, style: { fill: 'var(--ink2)', fontVariantNumeric: 'tabular-nums' } });
+      }
+    } else {
+      const gw = n * bw + (n - 1) * 2;
+      o.series.forEach((se, j) => {
+        const v = se.values[i], x = cx - gw / 2 + j * (bw + 2);
+        if (v == null) { st(svg, x + bw / 2, Y(0) - 6, 's/d', { 'text-anchor': 'middle', 'font-size': 10.5, style: { fill: 'var(--muted)' } }); return; }
+        if (v > 0) s('path', { d: pathV(x, Y(v), bw, Y(0) - Y(v), true), style: { fill: se.color, opacity: se.dim && se.dim[i] ? 0.45 : 1 } }, svg);
+        if (o.topLabels) st(svg, x + bw / 2, Y(v) - 6, o.fmt(v), { 'text-anchor': 'middle', 'font-size': 11.5, style: { fill: 'var(--ink2)' } });
+      });
+    }
+    const parts = twoLine ? splitLabel(c) : [c];
+    parts.forEach((p, k) => st(svg, cx, H - padB + 16 + k * 13, p, { 'text-anchor': 'middle', 'font-size': 11.5, style: { fill: 'var(--ink2)' } }));
+    const hr = s('rect', { x: padL + band * i, y: padT, width: band, height: plotH, rx: 4 }, svg);
+    svg.insertBefore(hr, svg.firstChild);
+    hit(hr, e => {
+      const rows = o.series.map(se => ({ color: se.color, value: se.values[i] == null ? 's/d' : o.fmt(se.values[i]), label: se.label })).reverse();
+      const foot = o.totalInTip && n > 1 ? 'Total: ' + o.fmt(sum(o.series.map(se => se.values[i]))) : (o.tipFoot ? o.tipFoot(i) : null);
+      tip(e, (o.tipTitle ? o.tipTitle(i) : c), rows, foot);
+    });
+  });
+}
+function splitLabel(c) { const k = c.indexOf(' '); return k < 0 ? [c] : [c.slice(0, k), c.slice(k + 1)]; }
+
+/* ------------------------------------------------------------ líneas */
+function lines(card, o) {
+  const H = o.height || 230;
+  const box = card.querySelector('.chart');
+  let ymax = 0; o.series.forEach(se => se.values.forEach(v => { ymax = Math.max(ymax, v || 0); }));
+  const ticks = niceTicks(0, ymax, 4), tTop = ticks[ticks.length - 1];
+  const padL = Math.max(...ticks.map(t => tw(axisFmt(t), 11))) + 10, padR = 14, padT = 10, padB = 24;
+  const { svg, W } = svgFor(card, H, cardTitle(card));
+  const plotW = W - padL - padR, plotH = H - padT - padB, nC = o.cats.length;
+  const X = i => padL + 8 + i * (plotW - 16) / (nC - 1);
+  const Y = v => padT + (tTop - v) / tTop * plotH;
+  ticks.forEach(t => {
+    s('line', { x1: padL, x2: W - padR, y1: Y(t), y2: Y(t), 'stroke-width': 1, style: { stroke: t === 0 ? 'var(--axis)' : 'var(--grid)' } }, svg);
+    st(svg, padL - 8, Y(t) + 4, axisFmt(t), { 'text-anchor': 'end', 'font-size': 11, style: { fill: 'var(--muted)', fontVariantNumeric: 'tabular-nums' } });
+  });
+  o.cats.forEach((c, i) => st(svg, X(i), H - 6, c, { 'text-anchor': 'middle', 'font-size': 11.5, style: { fill: 'var(--ink2)' } }));
+  const cross = s('line', { y1: padT, y2: padT + plotH, 'stroke-width': 1, visibility: 'hidden', style: { stroke: 'var(--axis)' } }, svg);
+  const dots = [];
+  o.series.forEach(se => {
+    const pts = se.values.map((v, i) => v == null ? null : [X(i), Y(v)]);
+    let d = ''; let pen = false;
+    pts.forEach(p => { if (!p) { pen = false; return; } d += (pen ? 'L' : 'M') + p[0] + ',' + p[1]; pen = true; });
+    s('path', { d, fill: 'none', 'stroke-width': 2, 'stroke-linejoin': 'round', 'stroke-linecap': 'round', style: { stroke: se.color } }, svg);
+    const li = se.values.length - 1;
+    s('circle', { cx: X(li), cy: Y(se.values[li]), r: 4, 'stroke-width': 2, style: { fill: se.color, stroke: 'var(--surface)' } }, svg);
+    dots.push(s('circle', { r: 4, 'stroke-width': 2, visibility: 'hidden', style: { fill: se.color, stroke: 'var(--surface)' } }, svg));
+  });
+  const ov = s('rect', { x: padL, y: padT, width: plotW, height: plotH }, svg);
+  let cur = nC - 1;
+  function show(i, e) {
+    cur = i;
+    cross.setAttribute('x1', X(i)); cross.setAttribute('x2', X(i)); cross.setAttribute('visibility', 'visible');
+    o.series.forEach((se, k) => { dots[k].setAttribute('cx', X(i)); dots[k].setAttribute('cy', Y(se.values[i] || 0)); dots[k].setAttribute('visibility', se.values[i] == null ? 'hidden' : 'visible'); });
+    const rows = o.series.map(se => ({ color: se.color, value: se.values[i] == null ? 'sin campaña' : o.fmt(se.values[i]), label: se.label }));
+    tip(e, o.cats[i] + (o.tipSuffix || ''), rows, o.series.length > 1 ? 'Total: ' + o.fmt(sum(o.series.map(se => se.values[i]))) : null);
+  }
+  function hide() { cross.setAttribute('visibility', 'hidden'); dots.forEach(d => d.setAttribute('visibility', 'hidden')); untip(); }
+  ov.setAttribute('tabindex', '0'); ov.classList.add('hit'); ov.style.fill = 'transparent';
+  ov.addEventListener('pointermove', e => {
+    const r = svg.getBoundingClientRect(), px = e.clientX - r.left;
+    const i = Math.max(0, Math.min(nC - 1, Math.round((px - padL - 8) / ((plotW - 16) / (nC - 1)))));
+    show(i, e);
+  });
+  ov.addEventListener('pointerleave', hide);
+  ov.addEventListener('focus', e => show(cur, e));
+  ov.addEventListener('blur', hide);
+  ov.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); show(Math.max(0, Math.min(nC - 1, cur + (e.key === 'ArrowRight' ? 1 : -1))), { target: ov, type: 'key' }); }
+  });
+}
+
+/* ------------------------------------------------------------ tiles */
+function tile(el, o) {
+  el.replaceChildren();
+  el.appendChild(h('p', 'label', o.label));
+  const v = h('p', 'value', o.value);
+  if (o.unit) v.appendChild(h('span', 'unit', o.unit));
+  el.appendChild(v);
+  if (o.status) {
+    const p = h('p', 'detail'); const pill = h('span', 'status-pill');
+    const ic = s('svg', { width: 14, height: 14, viewBox: '0 0 14 14', 'aria-hidden': 'true' }); flagIcon(ic, 0, 0, o.status.kind);
+    pill.appendChild(ic); pill.appendChild(document.createTextNode(o.status.text)); p.appendChild(pill); el.appendChild(p);
+  }
+  (o.details || []).forEach(d => { const p = h('p', 'detail'); richText(p, d); el.appendChild(p); });
+  if (o.meter) {
+    const m = h('div', 'meter'), tr = h('div', 'meter-track'), f = h('div', 'meter-fill');
+    f.style.width = Math.min(100, o.meter.value * 100) + '%';
+    f.style.background = o.meter.value >= 1 ? 'var(--critical)' : o.meter.value >= 0.9 ? 'var(--warning)' : 'var(--accent)';
+    tr.appendChild(f); m.appendChild(tr);
+    tr.setAttribute('role', 'meter'); tr.setAttribute('aria-valuemin', '0'); tr.setAttribute('aria-valuemax', '100');
+    tr.setAttribute('aria-valuenow', Math.round(o.meter.value * 100)); tr.setAttribute('aria-label', o.meter.label || o.label);
+    const lg = h('div', 'meter-legend'); lg.appendChild(h('span', null, o.meter.left)); lg.appendChild(h('span', null, o.meter.right)); m.appendChild(lg);
+    el.appendChild(m);
+  }
+  if (o.split) {
+    const sp = h('div', 'split');
+    o.split.forEach(x => { const it = h('span'); const d = h('span', 'dot'); d.style.background = x.color; it.appendChild(d); it.appendChild(document.createTextNode(x.label + ' ')); it.appendChild(h('strong', null, x.value)); sp.appendChild(it); });
+    el.appendChild(sp);
+  }
+  if (o.spark) sparkline(el, o.spark);
+}
+function richText(p, parts) { // parts: string o [texto, {b:true}]
+  (Array.isArray(parts) ? parts : [parts]).forEach(x => {
+    if (typeof x === 'string') p.appendChild(document.createTextNode(x));
+    else p.appendChild(h('strong', null, x.b));
+  });
+}
+function sparkline(el, o) {
+  const W = 220, H = 34, wrap = h('div', 'spark');
+  const svg = s('svg', { width: '100%', height: H, viewBox: '0 0 ' + W + ' ' + H, preserveAspectRatio: 'none', 'aria-hidden': 'true' }, wrap);
+  const mx = Math.max(...o.values), n = o.values.length, bw = Math.min(14, W / n - 4);
+  o.values.forEach((v, i) => {
+    const hh = v / mx * (H - 2), x = i * (W / n) + (W / n - bw) / 2;
+    if (hh > 0) s('path', { d: pathV(x, H - hh, bw, hh, true), style: { fill: i === o.hi ? 'var(--accent)' : 'var(--axis)' } }, svg);
+  });
+  el.appendChild(wrap);
+}
+function statusIcon(kind) {
+  const ic = s('svg', { width: 18, height: 18, viewBox: '0 0 14 14', 'aria-hidden': 'true' });
+  if (kind === 'good') { s('circle', { cx: 7, cy: 7, r: 6.5, style: { fill: 'var(--good)' } }, ic); s('path', { d: 'M4 7.2l2 2 4-4.4', fill: 'none', 'stroke-width': 1.6, 'stroke-linecap': 'round', 'stroke-linejoin': 'round', style: { stroke: '#fff' } }, ic); }
+  else if (kind === 'critical') { s('circle', { cx: 7, cy: 7, r: 6.5, style: { fill: 'var(--critical)' } }, ic); s('rect', { x: 6.2, y: 3.2, width: 1.6, height: 5, rx: 0.8, style: { fill: '#fff' } }, ic); s('circle', { cx: 7, cy: 10.4, r: 0.95, style: { fill: '#fff' } }, ic); }
+  else flagIcon(ic, 0, 0, kind);
+  return ic;
+}
+
+/* ------------------------------------------------------------ datos derivados */
+const F = D.fundos;
+const FUNDO = {
+  sondrio: Object.assign({ key: 'sondrio', label: 'Sondrio convencional', color: 'var(--s1)' }, F.sondrio),
+  organico: Object.assign({ key: 'organico', label: 'Orgánico', color: 'var(--s2)' }, F.organico),
+};
+const campoTot = F.sondrio.avance + F.organico.avance, campoMeta = F.sondrio.meta + F.organico.meta, campoHa = F.sondrio.ha + F.organico.ha;
+const eyc = D.eycg_campana['CAMPAÑA 2026-2027'];
+const eyTot = sum(Object.values(eyc));
+const proy30 = D.inversion_proyectos.filter(p => /Sweet Globe 30 ha/.test(p.proyecto));
+const proy30Tot = sum(proy30.map(p => p.valor));
+const rub = (f, name) => F[f].rubros.find(r => r.rubro === name) || { avance: 0, meta: 0 };
+const indOrg = rub('organico', 'Indirecto');
+const bajaBio = D.otros_gastos.find(o => /biológico Greenvic/.test(o.concepto));
+const tcTot = D.gv_destinos.find(d => /tipo de cambio/.test(d.destino)).valor;
+const pc = D.packing_caja;
+
+/* ------------------------------------------------------------ RESUMEN */
+function renderResumenTiles() {
+  tile($('#heroCampo'), {
+    label: 'Costo de campo acumulado · ambos fundos', value: usd(campoTot),
+    details: [['Lleva el ', { b: pct(campoTot / campoMeta) }, ' de la meta de la campaña (' + usd(campoMeta) + ') en ' + campoHa.toFixed(1) + ' ha.']],
+    meter: { value: campoTot / campoMeta, left: 'Avance ' + pct(campoTot / campoMeta), right: 'Meta ' + usd(campoMeta), label: 'Avance contra meta del costo de campo' },
+    split: [
+      { color: 'var(--s1)', label: 'Sondrio convencional', value: usd(F.sondrio.avance) + ' · ' + pct(F.sondrio.avance / F.sondrio.meta) },
+      { color: 'var(--s2)', label: 'Orgánico', value: usd(F.organico.avance) + ' · ' + pct(F.organico.avance / F.organico.meta) },
+    ],
+  });
+  tile($('#kGv'), { label: 'Gasto total · Greenvic Perú SAC', value: usd(D.gv_total), details: ['Enero a octubre 2026, todos los destinos contables.'] });
+  tile($('#kEy'), { label: 'Gasto campaña 2026-27 · exportadora', value: usd(eyTot), details: [['Incluye ', { b: usd(pc.mp_2627) }, ' de materia prima uva registrada en octubre.']] });
+  tile($('#kHa'), { label: 'Costo de campo por hectárea', value: usd(campoTot / campoHa, { dec: 1 }), details: [['Meta de la campaña: ', { b: usd(campoMeta / campoHa, { dec: 1 }) + ' por ha' }]] });
+  tile($('#kInv'), { label: 'Inversión de la campaña', value: usd(D.gv_destinos.find(d => d.destino === 'Inversión').valor), details: [['El proyecto Sweet Globe 30 ha concentra ', { b: pct(proy30Tot / D.inversion_proyectos_total) }, ' de la inversión del año.']] });
+
+  const al = $('#alerts'); al.replaceChildren();
+  const sOver = F.sondrio.rubros.filter(r => r.meta > 0 && r.avance / r.meta > 1).sort((a, b) => b.avance / b.meta - a.avance / a.meta);
+  [
+    { kind: 'critical', k: 'Crítico', t: 'Indirecto del orgánico al ' + pct(indOrg.avance / indOrg.meta) + ' de su meta',
+      d: usd(indOrg.avance) + ' contra ' + usd(indOrg.meta) + ' presupuestados. En octubre entró la regalía Sweet Globe de Bloom Fresh International (' + usd(D.bloom_fresh.valor) + ') en Mantenimiento Organik.' },
+    { kind: 'serious', k: 'Serio', t: 'Sondrio convencional ya usó el ' + pct(F.sondrio.avance / F.sondrio.meta) + ' de su meta',
+      d: sOver.map(r => r.rubro.split(' (')[0] + ' ' + pct(r.avance / r.meta)).join(', ') + '. Todavía falta la cosecha.' },
+    { kind: 'warning', k: 'Advertencia', t: 'La diferencia de cambio pesa en los gastos financieros',
+      d: 'Greenvic Perú acumula ' + usd(tcTot) + ' de ajuste por tipo de cambio. En la exportadora explicó el ' + pct(D.eycg_fin_2526.dif_cambio / D.eycg_fin_2526.total) + ' de los gastos financieros de la campaña 2025-26.' },
+    { kind: 'warning', k: 'Advertencia', t: 'Baja de activo biológico por ' + usd(bajaBio.valor) + ' en abril',
+      d: 'Representa el ' + pct(bajaBio.valor / D.otros_gastos_total) + ' de los otros gastos del año.' },
+  ].forEach(a => {
+    const li = h('li', 'alert'); li.appendChild(statusIcon(a.kind));
+    const dv = h('div'); dv.appendChild(h('p', 'alert-k', a.k)); dv.appendChild(h('p', 'alert-t', a.t)); dv.appendChild(h('p', 'alert-d', a.d));
+    li.appendChild(dv); al.appendChild(li);
+  });
+  const m = D.gv_mensual, peak = m.meses.reduce((b, _, i) => (sum([m.campo[i], m.inversion[i], m.administracion[i], m.financieros[i], m.otros[i]]) > sum([m.campo[b], m.inversion[b], m.administracion[b], m.financieros[b], m.otros[b]]) ? i : b), 0);
+  const LARGO = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Setiembre', 'Octubre'];
+  const peakTot = sum([m.campo[peak], m.inversion[peak], m.administracion[peak], m.financieros[peak], m.otros[peak]]);
+  $('#gvMensualNote').textContent = 'Abril sube por la baja de activo biológico (' + usd(bajaBio.valor) + ') y el ajuste por tipo de cambio. ' + LARGO[peak] + ' es el mes más alto (' + usd(peakTot) + '), con la regalía Sweet Globe dentro del costo de campo.';
+}
+
+const CHARTS = {
+  gvMensual(card) {
+    const m = D.gv_mensual;
+    const series = [
+      { key: 'campo', label: 'Costo de campo', color: 'var(--s1)', values: m.campo },
+      { key: 'inversion', label: 'Inversión', color: 'var(--s2)', values: m.inversion },
+      { key: 'administracion', label: 'Administración', color: 'var(--s3)', values: m.administracion },
+      { key: 'financieros', label: 'Financieros y tipo de cambio', color: 'var(--s4)', values: m.financieros },
+      { key: 'otros', label: 'Otros (otros gastos, packing, servicios, ventas)', color: 'var(--other)', values: m.otros },
+    ];
+    legend(card, series.map(x => ({ label: x.label, color: x.color })));
+    cols(card, { cats: m.meses, series, mode: 'stack', fmt: usd, height: 400, totalInTip: true, tipTitle: i => m.meses[i] + ' 2026' });
+    table(card, { cols: ['Mes'].concat(series.map(x => x.label), ['Total']), num: [0, 1, 1, 1, 1, 1, 1],
+      rows: m.meses.map((mm, i) => [mm].concat(series.map(x => usd(x.values[i], { full: true })), [usd(sum(series.map(x => x.values[i])), { full: true })])) });
+  },
+  gvDestinos(card) {
+    const tot = sum(D.gv_destinos.map(d => d.valor));
+    const rows = D.gv_destinos.map(d => ({ label: d.destino, values: { v: d.valor } }));
+    legend(card, []);
+    hbar(card, { rows, series: [{ key: 'v', label: 'Acumulado', color: 'var(--s1)' }], fmt: v => usd(v), rowH: 28, labelShare: 0.26,
+      valueLabel: r => usd(r.values.v) + ' · ' + pct(r.values.v / tot) });
+    table(card, { cols: ['Destino', 'US$', '% del total'], num: [0, 1, 1], rows: D.gv_destinos.map(d => [d.destino, usd(d.valor, { full: true }), pct(d.valor / tot, 1)]) });
+  },
+
+  /* -------------------------------------------------------- CAMPO */
+  rubros(card) {
+    const act = activeFundos();
+    const names = [];
+    act.forEach(f => FUNDO[f].rubros.forEach(r => { if (names.indexOf(r.rubro) < 0) names.push(r.rubro); }));
+    const rows = names.map(nm => {
+      const values = {}; let av = 0, meta = 0; const foot = [];
+      act.forEach(f => { const r = FUNDO[f].rubros.find(x => x.rubro === nm); if (r) { values[f] = r.avance; av += r.avance; meta += r.meta; if (r.avance < 0) foot.push(FUNDO[f].label + ': reverso de ' + usd(r.avance)); } });
+      return { label: nm, values, target: meta, av, meta, tipFoot: (meta ? 'Avance ' + pct(av / meta) + ' de la meta' : 'Sin meta asignada') + (foot.length ? ' · ' + foot.join(' · ') : '') };
+    }).sort((a, b) => b.meta - a.meta || b.av - a.av);
+    const series = act.map(f => ({ key: f, label: FUNDO[f].label, color: FUNDO[f].color }));
+    legend(card, series.map(x => ({ label: x.label, color: x.color })).concat([{ label: 'Meta', kind: 'tick' }]));
+    if (series.length === 1) { const lg = card.querySelector('.legend'); lg.hidden = card.classList.contains('show-table'); legendForce(card, series, true); }
+    hbar(card, { rows, series, mode: 'stack', fmt: v => usd(v), rowH: 38, labelShare: 0.34,
+      valueLabel: r => usd(r.av) + (r.meta ? ' · ' + pct(r.av / r.meta) : ' · sin meta'),
+      flag: r => r.meta && r.av / r.meta > 1 ? 'critical' : null });
+    table(card, { cols: ['Rubro'].concat(series.map(x => x.label), ['Avance', 'Meta', '% de la meta']), num: [0].concat(series.map(() => 1), [1, 1, 1]),
+      rows: rows.map(r => [r.label].concat(series.map(x => usd(r.values[x.key] || 0, { full: true })), [usd(r.av, { full: true }), usd(r.meta, { full: true }), r.meta ? pct(r.av / r.meta) : '—'])) });
+  },
+  campoMensual(card) {
+    const m = D.campo_mensual, act = activeFundos();
+    const series = act.map(f => { let started = false; return { key: f, label: FUNDO[f].label, color: FUNDO[f].color, values: m[f].map(v => { if (v) started = true; return started ? v : null; }) }; });
+    legend(card, series.map(x => ({ label: x.label, color: x.color, kind: 'line' })));
+    lines(card, { cats: m.meses, series, fmt: usd, height: 210, tipSuffix: ' 2026' });
+    table(card, { cols: ['Mes'].concat(series.map(x => x.label)), num: [0].concat(series.map(() => 1)), rows: m.meses.map((mm, i) => [mm].concat(series.map(x => x.values[i] == null ? 'sin campaña' : usd(x.values[i], { full: true })))) });
+  },
+  histHa(card) {
+    const act = activeFundos();
+    const cats = ['2022-23', '2023-24', '2024-25', '2025-26', '2026-27 meta', '2026-27 avance'];
+    const series = act.map(f => {
+      const x = FUNDO[f];
+      return { key: f, label: x.label, color: x.color, values: [x.hist_ha['2022-23'], x.hist_ha['2023-24'], x.hist_ha['2024-25'], x.hist_ha['2025-26'], x.meta / x.ha, x.avance / x.ha], dim: [0, 0, 0, 0, 0, 1] };
+    });
+    legend(card, series.map(x => ({ label: x.label, color: x.color })));
+    cols(card, { cats, series, mode: 'group', fmt: v => usd(v, { dec: 1 }), height: 220, topLabels: act.length === 1,
+      tipTitle: i => cats[i] + (i < 4 ? ' · costo final por ha' : i === 4 ? ' · presupuesto por ha' : ' · avance al 27 oct'), });
+    table(card, { cols: ['Campaña'].concat(series.map(x => x.label + ' (US$/ha)')), num: [0].concat(series.map(() => 1)), rows: cats.map((c, i) => [c].concat(series.map(x => usd(x.values[i], { full: true })))) });
+    const notes = act.map(f => { const x = FUNDO[f], d = x.meta / x.ha / x.prev_ha - 1; return x.label + ': la meta por ha es ' + (Math.abs(d) < 0.01 ? 'igual' : pct(Math.abs(d)) + (d < 0 ? ' menor' : ' mayor')) + ' que el costo final 2025-26'; });
+    $('#histNote').textContent = notes.join('. ') + '. La barra de avance (atenuada) es parcial: la campaña no ha cerrado.';
+  },
+  sectores(card) {
+    const act = activeFundos();
+    if (act.indexOf('organico') < 0) {
+      legend(card, []); card.querySelector('.chart').replaceChildren(h('div', 'empty', 'El detalle por sector está disponible para el fundo orgánico. En Sondrio convencional la mayor parte del costo se registra en la exportadora y en centros de costo comunes, así que el costo por sector no sería comparable.'));
+      table(card, { cols: ['Sector', 'Variedad', 'ha', 'US$', 'US$/ha'], rows: [] }); $('#sectNote').textContent = ''; return;
+    }
+    const series = [{ key: 'Sweet Globe', label: 'Sweet Globe', color: 'var(--s3)' }, { key: 'Sweet Celebration', label: 'Sweet Celebration', color: 'var(--s7)' }];
+    const rows = D.sectores.map(x => ({ label: x.sector, sub: x.ha.toFixed(2) + ' ha · ' + x.variedad, values: { [x.variedad]: x.por_ha }, tipFoot: 'Costo directo ' + usd(x.valor) + ' en ' + x.ha.toFixed(2) + ' ha' }));
+    legend(card, series.map(x => ({ label: x.label, color: x.color })));
+    hbar(card, { rows, series, mode: 'stack', fmt: v => usd(v, { dec: 1 }) + ' por ha', rowH: 34, labelShare: 0.24, valueLabel: r => usd(sum(Object.values(r.values)), { dec: 1 }) });
+    table(card, { cols: ['Sector', 'Variedad', 'ha', 'Costo directo US$', 'US$ por ha'], num: [0, 0, 1, 1, 1], rows: D.sectores.map(x => [x.sector, x.variedad, x.ha.toFixed(2), usd(x.valor, { full: true }), usd(x.por_ha, { full: true })]) });
+    const top = D.sectores[0], vh = D.variedad_ha;
+    $('#sectNote').textContent = 'Promedio: Sweet Celebration ' + usd(vh['Sweet Celebration'], { dec: 1 }) + ' por ha y Sweet Globe ' + usd(vh['Sweet Globe'], { dec: 1 }) + ' por ha. ' + top.sector + ' (' + top.variedad + ', ' + top.ha.toFixed(2) + ' ha) cuesta ' + (top.por_ha / vh[top.variedad]).toFixed(1) + ' veces el promedio de su variedad: conviene revisar sus cargos. No incluye ' + usd(D.sectores_no_asignado) + ' de costos comunes sin asignar a sectores (por ejemplo, Mantenimiento Organik, donde está la regalía Sweet Globe).';
+  },
+
+  /* -------------------------------------------------------- PACKING */
+  cajaComp(card) {
+    const series = [{ key: 'conv', label: 'Convencional', color: 'var(--s1)' }, { key: 'org', label: 'Orgánica', color: 'var(--s2)' }];
+    const rows = pc.componentes.map(c => ({ label: c.componente, values: { conv: c.conv, org: c.org } }));
+    legend(card, series.map(x => ({ label: x.label, color: x.color })));
+    hbar(card, { rows, series, mode: 'group', fmt: v => usd(v, { cents: true }), axisFmt: v => 'US$' + v, labelShare: 0.4 });
+    table(card, { cols: ['Componente', 'Convencional US$/caja', 'Orgánica US$/caja'], num: [0, 1, 1],
+      rows: rows.map(r => [r.label, usd(r.values.conv, { cents: true }), usd(r.values.org, { cents: true })]).concat([['Total', usd(pc.total_conv / pc.cajas_conv, { cents: true }), usd(pc.total_org / pc.cajas_org, { cents: true })]]) });
+  },
+  cajaHist(card) {
+    const hst = D.caja_hist;
+    legend(card, []);
+    cols(card, { cats: hst.map(x => x.campana), series: [{ key: 'c', label: 'Costo por caja', color: 'var(--s1)', values: hst.map(x => x.caja) }], mode: 'stack',
+      fmt: v => usd(v, { cents: true }), height: 330, topLabels: true,
+      tipFoot: i => hst[i].cajas ? nf0.format(hst[i].cajas) + ' cajas · ' + usd(hst[i].costo) : 'Sin dato en los archivos' });
+    table(card, { cols: ['Campaña', 'Costo sin materia prima', 'Cajas', 'US$ por caja'], num: [0, 1, 1, 1],
+      rows: hst.map(x => [x.campana, x.costo == null ? 's/d' : usd(x.costo, { full: true }), x.cajas == null ? 's/d' : nf0.format(x.cajas), x.caja == null ? 's/d' : usd(x.caja, { cents: true })]) });
+  },
+  eyMensual(card) {
+    const m = D.eycg_mensual;
+    const series = [
+      { key: 'packing', label: 'Packing', color: 'var(--s1)', values: m.packing },
+      { key: 'campo', label: 'Costo de campo', color: 'var(--s2)', values: m.campo },
+      { key: 'ventas', label: 'Ventas y exportación', color: 'var(--s3)', values: m.ventas },
+      { key: 'financieros', label: 'Financieros', color: 'var(--s4)', values: m.financieros },
+      { key: 'otros', label: 'Otros (administración, otros gastos)', color: 'var(--other)', values: m.otros },
+    ];
+    legend(card, series.map(x => ({ label: x.label, color: x.color })));
+    cols(card, { cats: m.meses, series, mode: 'stack', fmt: usd, height: 270, totalInTip: true, tipTitle: i => m.meses[i] + ' 2026' });
+    table(card, { cols: ['Mes'].concat(series.map(x => x.label), ['Total']), num: [0, 1, 1, 1, 1, 1, 1],
+      rows: m.meses.map((mm, i) => [mm].concat(series.map(x => usd(x.values[i], { full: true })), [usd(sum(series.map(x => x.values[i])), { full: true })])) });
+  },
+  eyVentas(card) {
+    const top = D.eycg_ventas.slice(0, 7), rest = D.eycg_ventas.slice(7);
+    const rows = top.map(v => ({ label: v.concepto, values: { v: v.valor } }));
+    if (rest.length) rows.push({ label: 'Otros (' + rest.length + ' cuentas)', values: { v: sum(rest.map(r => r.valor)) }, color: 'var(--other)' });
+    legend(card, []);
+    hbar(card, { rows, series: [{ key: 'v', label: 'Acumulado', color: 'var(--s1)' }], fmt: v => usd(v), rowH: 40, labelShare: 0.5, valueLabel: r => usd(r.values.v) });
+    table(card, { cols: ['Cuenta', 'US$'], num: [0, 1], rows: D.eycg_ventas.map(v => [v.concepto, usd(v.valor, { full: true })]) });
+  },
+
+  /* -------------------------------------------------------- INVERSIONES */
+  invProy(card) {
+    const N = 12, top = D.inversion_proyectos.slice(0, N), rest = D.inversion_proyectos.slice(N);
+    const rows = top.map(p => ({ label: p.proyecto, values: { v: p.valor }, color: /Sweet Globe 30 ha/.test(p.proyecto) ? 'var(--s2)' : null }));
+    rows.push({ label: 'Otros ' + rest.length + ' proyectos', values: { v: sum(rest.map(r => r.valor)) }, color: 'var(--other)' });
+    legend(card, [{ label: 'Proyecto Sweet Globe 30 ha (orgánico Sondrio)', color: 'var(--s2)' }, { label: 'Otros proyectos', color: 'var(--s1)' }, { label: 'Proyectos menores agrupados', color: 'var(--other)' }]);
+    hbar(card, { rows, series: [{ key: 'v', label: 'Inversión', color: 'var(--s1)' }], fmt: v => usd(v), rowH: 34, labelShare: 0.44,
+      valueLabel: r => usd(r.values.v) + ' · ' + pct(r.values.v / D.inversion_proyectos_total) });
+    table(card, { cols: ['Proyecto', 'US$', '% del total'], num: [0, 1, 1], rows: D.inversion_proyectos.map(p => [p.proyecto, usd(p.valor, { full: true }), pct(p.valor / D.inversion_proyectos_total, 1)]) });
+    $('#invNote').textContent = 'Total del periodo: ' + usd(D.inversion_proyectos_total) + ', incluye ' + usd(D.inversion_enero_otras) + ' de enero imputados a la campaña anterior. Las tres partidas del proyecto Sweet Globe 30 ha (plantas, parrón y riego) suman ' + usd(proy30Tot) + '.';
+  },
+  invMensual(card) {
+    const m = D.gv_mensual;
+    legend(card, []);
+    cols(card, { cats: m.meses, series: [{ key: 'v', label: 'Inversión', color: 'var(--s1)', values: m.inversion }], mode: 'stack', fmt: usd, height: 200, tipTitle: i => m.meses[i] + ' 2026' });
+    table(card, { cols: ['Mes', 'Inversión US$'], num: [0, 1], rows: m.meses.map((mm, i) => [mm, usd(m.inversion[i], { full: true })]) });
+  },
+  otrosGastos(card) {
+    const N = 6, top = D.otros_gastos.slice(0, N), rest = D.otros_gastos.slice(N);
+    const rows = top.map(o => ({ label: o.concepto, values: { v: o.valor } }));
+    rows.push({ label: 'Otros ' + rest.length + ' conceptos', values: { v: sum(rest.map(r => r.valor)) }, color: 'var(--other)' });
+    legend(card, []);
+    hbar(card, { rows, series: [{ key: 'v', label: 'Otros gastos', color: 'var(--s1)' }], fmt: v => usd(v), rowH: 30, labelShare: 0.52, valueLabel: r => usd(r.values.v) });
+    table(card, { cols: ['Concepto', 'US$'], num: [0, 1], rows: D.otros_gastos.map(o => [o.concepto, usd(o.valor, { full: true })]) });
+  },
+
+  /* -------------------------------------------------------- PROVEEDORES */
+  proveedores(card) {
+    const rows = D.proveedores.map(p => ({ label: p.proveedor, sub: p.destino, values: { v: p.valor } }));
+    legend(card, []);
+    hbar(card, { rows, series: [{ key: 'v', label: 'Gasto', color: 'var(--s1)' }], fmt: v => usd(v), rowH: 38, labelShare: 0.42,
+      valueLabel: r => usd(r.values.v) + ' · ' + pct(r.values.v / D.proveedores_total, 1) });
+    table(card, { cols: ['Proveedor', 'Destino principal', 'US$', '% del gasto con proveedores'], num: [0, 0, 1, 1], rows: D.proveedores.map(p => [p.proveedor, p.destino, usd(p.valor, { full: true }), pct(p.valor / D.proveedores_total, 1)]) });
+  },
+  insumos(card) {
+    const rows = D.insumos.map(x => ({ label: x.insumo, sub: x.rubro, values: { v: x.valor } }));
+    legend(card, []);
+    hbar(card, { rows, series: [{ key: 'v', label: 'Gasto', color: 'var(--s1)' }], fmt: v => usd(v), rowH: 34, labelShare: 0.38, valueLabel: r => usd(r.values.v) });
+    table(card, { cols: ['Insumo', 'Rubro', 'US$'], num: [0, 0, 1], rows: D.insumos.map(x => [x.insumo, x.rubro, usd(x.valor, { full: true })]) });
+  },
+  insumosRubro(card) {
+    const ent = Object.entries(D.insumos_rubro).sort((a, b) => b[1] - a[1]), tot = sum(ent.map(e => e[1]));
+    legend(card, []);
+    hbar(card, { rows: ent.map(e => ({ label: e[0], values: { v: e[1] } })), series: [{ key: 'v', label: 'Gasto', color: 'var(--s1)' }], fmt: v => usd(v), rowH: 30, labelShare: 0.3,
+      valueLabel: r => usd(r.values.v) + ' · ' + pct(r.values.v / tot) });
+    table(card, { cols: ['Rubro', 'US$', '%'], num: [0, 1, 1], rows: ent.map(e => [e[0], usd(e[1], { full: true }), pct(e[1] / tot, 1)]) });
+  },
+};
+function legendForce(card, series) { // un solo fundo: igual mostramos la clave de meta
+  const lg = card.querySelector('.legend'); lg.replaceChildren(); lg.hidden = card.classList.contains('show-table');
+  series.forEach(x => { const sp = h('span'); const k = h('span', 'key-rect'); k.style.background = x.color; sp.appendChild(k); sp.appendChild(document.createTextNode(x.label)); lg.appendChild(sp); });
+  const sp = h('span'); sp.appendChild(h('span', 'key-tick')); sp.appendChild(document.createTextNode('Meta')); lg.appendChild(sp);
+}
+
+/* ------------------------------------------------------------ CAMPO: filtro y tiles */
+let fundoSel = 'ambos';
+function activeFundos() { return fundoSel === 'ambos' ? ['sondrio', 'organico'] : [fundoSel]; }
+function renderCampoTiles() {
+  const act = activeFundos().map(f => FUNDO[f]);
+  const av = sum(act.map(x => x.avance)), meta = sum(act.map(x => x.meta)), ha = sum(act.map(x => x.ha));
+  const prevTot = sum(act.map(x => x.prev_total)), prevHa = sum(act.map(x => x.prev_total / x.prev_ha));
+  const name = act.length > 1 ? 'ambos fundos' : act[0].label;
+  tile($('#cCosto'), { label: 'Costo acumulado · ' + name, value: usd(av), details: [ha.toFixed(2) + ' ha en producción.'] });
+  tile($('#cHa'), { label: 'Costo por hectárea', value: usd(av / ha, { dec: 1 }), details: [['Meta por ha: ', { b: usd(meta / ha, { dec: 1 }) }]] });
+  const p = av / meta;
+  tile($('#cMeta'), { label: 'Ejecución de la meta', value: pct(p), details: ['Saldo por gastar: ' + usd(meta - av) + '.'],
+    status: p >= 1 ? { kind: 'critical', text: 'Meta superada' } : p >= 0.9 ? { kind: 'warning', text: 'Cerca del límite' } : null,
+    meter: { value: p, left: '0%', right: 'Meta ' + usd(meta), label: 'Ejecución de la meta' } });
+  tile($('#cPrev'), { label: 'Costo final 2025-26 por hectárea', value: usd(prevTot / prevHa, { dec: 1 }), details: [['El avance actual equivale al ', { b: pct(av / prevTot) }, ' del costo total de la campaña anterior (' + usd(prevTot) + ').']] });
+}
+
+/* ------------------------------------------------------------ PACKING / INVERSIÓN / PROVEEDORES tiles */
+function renderOtherTiles() {
+  tile($('#pCajas'), { label: 'Cajas exportadas 2025-26', value: nf0.format(Math.round((pc.cajas_conv + pc.cajas_org) / 1000)) + 'K', unit: ' cajas de 8.2 kg',
+    split: [{ color: 'var(--s1)', label: 'Convencional', value: nf0.format(pc.cajas_conv) }, { color: 'var(--s2)', label: 'Orgánica', value: nf0.format(Math.round(pc.cajas_org)) }] });
+  tile($('#pConv'), { label: 'Costo por caja · convencional', value: usd(pc.total_conv / pc.cajas_conv, { cents: true }), details: [['Total campaña: ', { b: usd(pc.total_conv) }, '. Sin materia prima: ' + usd((pc.total_conv - pc.componentes[0].conv * pc.cajas_conv) / pc.cajas_conv, { cents: true }) + '.']] });
+  tile($('#pOrg'), { label: 'Costo por caja · orgánica', value: usd(pc.total_org / pc.cajas_org, { cents: true }), details: [['Total campaña: ', { b: usd(pc.total_org) }, '. Sin materia prima: ' + usd((pc.total_org - pc.componentes[0].org * pc.cajas_org) / pc.cajas_org, { cents: true }) + '.']] });
+  tile($('#pProy'), { label: 'Proyección de cajas 2026-27', value: nf0.format((pc.proy_cajas_conv + pc.proy_cajas_org) / 1000) + 'K', unit: ' cajas',
+    details: [nf0.format(pc.proy_cajas_conv) + ' convencionales y ' + nf0.format(pc.proy_cajas_org) + ' orgánicas.', ['Materia prima convencional a octubre: ', { b: usd(pc.mp_2627) }, ' (' + usd(pc.mp_2627 / pc.proy_cajas_conv, { cents: true }) + ' por caja proyectada).']] });
+
+  const invTot = D.gv_destinos.find(d => d.destino === 'Inversión').valor;
+  const nProy = D.inversion_proyectos.filter(p => p.valor >= 1000).length;
+  tile($('#iTotal'), { label: 'Inversión de la campaña 2026-27', value: usd(invTot), details: [nProy + ' proyectos con más de US$1K de gasto.'] });
+  tile($('#i30'), { label: 'Proyecto Sweet Globe 30 ha', value: usd(proy30Tot), details: [['Plantas, parrón y riego. ', { b: pct(proy30Tot / D.inversion_proyectos_total) }, ' de la inversión del año.']] });
+  tile($('#iOtros'), { label: 'Otros gastos', value: usd(D.otros_gastos_total), details: [['La baja de activo biológico (abril) es ', { b: usd(bajaBio.valor) }, '.']] });
+  const adm = D.gv_mensual.administracion, admTot = sum(adm), full = adm.slice(1, 9);
+  tile($('#iAdm'), { label: 'Gastos de administración', value: usd(admTot), details: ['Promedio de ' + usd(sum(full) / full.length) + ' al mes (febrero a setiembre).'],
+    spark: { values: adm.slice(1), hi: adm.slice(1).indexOf(Math.max(...adm.slice(1))) } });
+
+  const top10 = sum(D.proveedores.map(p => p.valor));
+  tile($('#vTotal'), { label: 'Gasto con proveedores · 2026-27', value: usd(D.proveedores_total), details: [D.proveedores_n + ' proveedores. No incluye planilla ni asientos internos.'] });
+  tile($('#vTop'), { label: 'Concentración en los 10 primeros', value: pct(top10 / D.proveedores_total), details: [['Suman ', { b: usd(top10) }, '; los dos primeros son plantas y regalías de Sweet Globe.']] });
+  tile($('#vIns'), { label: 'Insumos agrícolas (rubro 61)', value: usd(sum(Object.values(D.insumos_rubro))), details: [['Fitosanitarios: ', { b: pct(D.insumos_rubro['Fitosanitarios'] / sum(Object.values(D.insumos_rubro))) }, ' del total.']] });
+  tile($('#vBloom'), { label: 'Regalía Sweet Globe (Bloom Fresh)', value: usd(D.bloom_fresh.valor), details: ['Registrada en octubre como costo de campo del orgánico (Mantenimiento Organik).'] });
+}
+
+/* ------------------------------------------------------------ notas */
+function renderNotes() {
+  const ul = $('#notes'); ul.replaceChildren();
+  [
+    'Fuentes: "Costo Agricola camp. 2026-2027 Greenvic-A Octubre 2026.xlsx" (hojas RESUMEN CAMPO, RES, RES DT 90 CC, 93 INVERSIONES, 99-otros gastos y DATA CLASE 6 con ' + nf0.format(D.movimientos_agr) + ' movimientos) y "Costos Industrial CAMP 2026-2027 - EXPORTADORA OCTUBRE 2026.xlsx" (RES, DT RES, PACKING, 94 - GAD y Case 6 TOTAL con ' + nf0.format(D.movimientos_ind) + ' movimientos, más las hojas ocultas CUADRO PACKING, CUADROS LIQ y RESUMEN EJECUTIVO).',
+    'La meta de Sondrio convencional no coincide entre archivos: US$1.28M en el agrícola (Greenvic Perú y exportadora juntas) y US$1.75M en el industrial (solo exportadora). El tablero usa la del agrícola.',
+    'La hoja RES del archivo industrial no incluye la materia prima uva de octubre (' + usd(pc.mp_2627) + ') que sí aparece en PACKING y en el detalle. Los gráficos de la exportadora usan el detalle (Case 6 TOTAL).',
+    'Varias hojas resumen dicen "Campaña 2025-2026" en el título aunque muestran la campaña 2026-2027.',
+    'El costo por caja 2025-26 y su histórico vienen de hojas ocultas. RESUMEN EJECUTIVO tiene celdas con #REF!; solo se usaron las que tienen valor.',
+    'Costo por sector: solo cargos directos al centro de costo de cada sector. Proveedores e insumos: solo libros de Greenvic Perú SAC, campaña 2026-27, movimientos con acreedor.',
+    'Mockup para validar contenido y diseño: las cifras salen de los archivos de octubre 2026 y no se actualizan solas.',
+  ].forEach(t => ul.appendChild(h('li', null, t)));
+}
+
+/* ------------------------------------------------------------ montaje */
+const lastW = new WeakMap();
+function renderCard(card) {
+  const fn = CHARTS[card.dataset.chart];
+  if (!fn || card.offsetParent === null) return;
+  fn(card);
+  lastW.set(card, card.querySelector('.chart').clientWidth);
+}
+function renderPanel(panel) { panel.querySelectorAll('[data-chart]').forEach(renderCard); }
+const ro = new ResizeObserver(entries => {
+  entries.forEach(en => {
+    const card = en.target.closest('[data-chart]');
+    const w = en.contentRect.width;
+    if (card && Math.abs((lastW.get(card) || 0) - w) > 1) renderCard(card);
+  });
+});
+document.querySelectorAll('[data-chart]').forEach(card => {
+  ro.observe(card.querySelector('.chart'));
+  const btn = card.querySelector('.tbl-btn');
+  btn.addEventListener('click', () => {
+    const on = btn.getAttribute('aria-pressed') !== 'true';
+    btn.setAttribute('aria-pressed', on); btn.textContent = on ? 'Ver gráfico' : 'Ver tabla';
+    card.classList.toggle('show-table', on);
+    card.querySelector('.chart').hidden = on; card.querySelector('.table-view').hidden = !on;
+    const lg = card.querySelector('.legend'); lg.hidden = on || lg.childElementCount < 2;
+    if (!on) renderCard(card);
+  });
+});
+
+const tabs = Array.from(document.querySelectorAll('.tab'));
+function showTab(name, push) {
+  tabs.forEach(t => {
+    const on = t.dataset.tab === name;
+    t.setAttribute('aria-selected', on); t.tabIndex = on ? 0 : -1;
+    document.getElementById('p-' + t.dataset.tab).hidden = !on;
+  });
+  untip();
+  renderPanel(document.getElementById('p-' + name));
+  if (push) history.replaceState(null, '', '#' + name + (name === 'campo' && fundoSel !== 'ambos' ? '/' + fundoSel : ''));
+}
+tabs.forEach((t, i) => {
+  t.addEventListener('click', () => showTab(t.dataset.tab, true));
+  t.addEventListener('keydown', e => {
+    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+    const n = tabs[(i + (e.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length];
+    n.focus(); showTab(n.dataset.tab, true);
+  });
+});
+
+const seg = Array.from(document.querySelectorAll('#fundoSeg button'));
+function setFundo(v, push) {
+  fundoSel = v;
+  seg.forEach(b => { b.setAttribute('aria-checked', b.dataset.v === v); b.tabIndex = b.dataset.v === v ? 0 : -1; });
+  renderCampoTiles();
+  renderPanel(document.getElementById('p-campo'));
+  if (push) history.replaceState(null, '', '#campo' + (v !== 'ambos' ? '/' + v : ''));
+}
+seg.forEach((b, i) => {
+  b.addEventListener('click', () => setFundo(b.dataset.v, true));
+  b.addEventListener('keydown', e => {
+    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+    e.preventDefault();
+    const n = seg[(i + (e.key === 'ArrowRight' ? 1 : -1) + seg.length) % seg.length]; n.focus(); setFundo(n.dataset.v, true);
+  });
+});
+
+const themeBtn = $('#themeBtn');
+function setTheme(t) {
+  document.documentElement.dataset.theme = t;
+  themeBtn.textContent = t === 'dark' ? 'Modo claro' : 'Modo oscuro';
+}
+themeBtn.addEventListener('click', () => setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'));
+
+const hash = location.hash.replace('#', '').split('/');
+const qTheme = new URLSearchParams(location.search).get('tema');
+setTheme(qTheme === 'dark' ? 'dark' : 'light');
+renderResumenTiles(); renderOtherTiles(); renderNotes();
+if (hash[1] && FUNDO[hash[1]]) fundoSel = hash[1];
+seg.forEach(b => { b.setAttribute('aria-checked', b.dataset.v === fundoSel); b.tabIndex = b.dataset.v === fundoSel ? 0 : -1; });
+renderCampoTiles();
+showTab(tabs.some(t => t.dataset.tab === hash[0]) ? hash[0] : 'resumen', false);
+window.addEventListener('scroll', untip, { passive: true });
+})();
+</script>
+</body>
+</html>
